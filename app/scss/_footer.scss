@@ -1,0 +1,323 @@
+/*===footer style===*/
+#fullpage .footer__section {
+  background: none;
+  background-attachment: initial;
+}
+.footer {
+  &__section {
+    background: var(--bg7);
+    background-attachment: fixed;
+  }
+  &__container {
+    display: block;
+    grid-row: content / span 2;
+    // grid-area: content;
+    position: relative;
+    color: var(--text-white);
+    padding-bottom: 0;
+    a {
+      color: var(--text-white);
+      transition: all 0.1s;
+      @media (hover: hover) {
+        &:hover {
+          color: var(--text-color-section-title);
+        }
+      }
+    }
+  }
+
+  &__title {
+    color: var(--text-white);
+  }
+
+  &__contacts {
+    margin-top: 60px;
+    width: 100%;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: minmax(auto, 400px) auto;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+  }
+
+  &__clinic-adres,
+  &__clinic-worktime,
+  &__clinic-worktime-p1,
+  &__clinic-worktime-p2,
+  &__clinic-tel,
+  &__clinic-email,
+  &__clinic-media {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.45px;
+    transition: 0.1s;
+    & i {
+      font-size: 40px;
+      margin-right: 15px;
+      width: 40px;
+    }
+  }
+  &__clinic {
+  }
+  &__clinic,
+  &__clinic-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+
+  &__clinic-adres {
+    // position: relative;
+    // padding-left: 50px;
+    // margin-right: 65px;
+    // margin-bottom: 15px;
+    // display: flex;
+    // align-items: center;
+    // flex-wrap: wrap;
+    // max-width: 55%;S
+    // min-height: 43px;
+
+    &:before {
+      // content: url(../img/footer__pin.png);
+      // position: absolute;
+      // left: 7px;
+    }
+  }
+
+  &__clinic-worktime {
+    // position: relative;
+    // padding-left: 60px;
+    // margin-top: 32px;
+    // margin-right: 65px;
+    &:before {
+      // content: url(../img/footer__calendar.png);
+      // position: absolute;
+      // left: 0;
+    }
+  }
+
+  &__clinic-worktime-p1 {
+  }
+
+  &__clinic-worktime-p2 {
+  }
+
+  &__clinic-contacts {
+  }
+
+  &__clinic-tel {
+    // display: block;
+    // position: relative;
+    // line-height: 40px;
+    // padding-left: 60px;
+    &:before {
+      // content: url(../img/footer__phone.png);
+      // position: absolute;
+      // left: 7px;
+    }
+  }
+
+  &__clinic-email {
+    // display: block;
+    // position: relative;
+    // line-height: 30px;
+    // padding-left: 60px;
+    // margin: 40px 0;
+    &:before {
+      // content: url(../img/footer__mail.png);
+      // position: absolute;
+      // left: 0;
+    }
+  }
+
+  // ----------MAP-----------------
+  &__map {
+    position: relative;
+    // margin: 0 -100%;
+    height: 480px;
+  }
+
+  &__map-link {
+    position: relative;
+    display: block;
+    max-width: 100vw;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      color: white;
+      z-index: 1;
+      position: relative;
+      margin-top: 120px;
+      &::before {
+        position: absolute;
+        content: "\f0a6";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 100px;
+        color: white;
+        bottom: 25px;
+        left: 12px;
+      }
+    }
+  }
+  &__map-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    opacity: 0.6 !important;
+  }
+
+  // -------------END MAP------------------
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 94px 0 70px 0;
+    transition: all 0.3s;
+    &--on {
+      margin-top: -66px;
+    }
+    & ul {
+      margin-top: 20px;
+    }
+    & li {
+      display: block;
+    }
+    & a {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.29;
+      letter-spacing: 0.35px;
+    }
+  }
+
+  &__menu-block {
+    & + .footer__menu-block {
+      margin-left: 20px;
+    }
+  }
+
+  &__menu-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    letter-spacing: 0.35px;
+  }
+
+  &__media {
+    display: flex;
+    justify-content: space-between;
+    // justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__media-watermark {
+    display: flex;
+    // width: 664px;
+    margin: 0 20px 70px 0;
+    opacity: 0.25;
+    // font-size: 35px;
+    font-size: calc(19px + 15 * ((100vw - 320px) / (1920 - 320)));
+    line-height: 1.29;
+    letter-spacing: 0.88px;
+  }
+  &__media-social-box {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__media-block1,
+  &__media-block2 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 70px;
+  }
+  &__media-block1 {
+    // margin-right: 120px;
+    margin-right: 6vw;
+  }
+  &__media-flamp {
+    display: flex;
+    &--img {
+      // height: 82px;
+      height: calc(66px + 15 * ((100vw - 320px) / (1920 - 320)));
+    }
+    &--text {
+      display: flex;
+      align-items: center;
+      // width: 115px;
+      // height: 82px;
+      height: calc(66px + 15 * ((100vw - 320px) / (1920 - 320)));
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: 0.53px;
+      color: #303540;
+      margin-left: 14px;
+    }
+  }
+
+  &__media-vk {
+    // margin-right: 45px;
+    margin-right: 2.4vw;
+    &--img {
+      // width: 82px;
+      // height: 82px;
+      height: calc(66px + 15 * ((100vw - 320px) / (1920 - 320)));
+    }
+  }
+
+  &__media-insta {
+    &--img {
+      // width: 82px;
+      // height: 82px;
+      height: calc(66px + 15 * ((100vw - 320px) / (1920 - 320)));
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info-block1,
+  &__info-block2,
+  &__info-block3,
+  &__info-block4 {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--text-color-section-title);
+    margin-right: 22px;
+    max-width: 25%;
+    & span {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      color: var(--text-color-section-title);
+    }
+  }
+
+  &__dev {
+    margin: 22px 0 42px;
+    text-align: right;
+  }
+
+  &__dev-link {
+    position: relative;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+  }
+}

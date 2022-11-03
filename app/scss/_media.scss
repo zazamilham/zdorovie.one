@@ -1,0 +1,701 @@
+@media (pointer: coarse) {
+	//------меню в шапке
+	.burger {
+		@media (hover: hover) {
+			&:hover {
+				background: var(--main-color);
+			}
+		}
+	}
+}
+
+@media (orientation: portrait) {
+	//------меню в шапке
+	.fp-controlArrow {
+		display: none;
+	}
+}
+
+@media (max-width: 1750px) {
+	//------меню в шапке
+	.burger {
+		display: flex;
+	}
+	.header {
+		&__menu {
+			position: absolute;
+			display: flex;
+			top: 0;
+			right: -15px;
+			// width: 100%;
+			background: var(--main-color);
+			transform: translatex(100%);
+			transition: transform 0.3s linear;
+			justify-content: center;
+			height: 100vh;
+			padding: 15px;
+			box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.15);
+			& ul {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				height: 100%;
+				padding: 15% 0;
+				height: 60vh;
+			}
+		}
+		&__list-item {
+			&:last-child {
+				margin-right: 16px;
+			}
+			a {
+				color: var(--text-white);
+				@media (hover: hover) {
+					&:hover {
+						color: var(--text-white);
+						&::before {
+							background-color: var(--text-white);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1300px) {
+	//------слайдер
+	.slide {
+		&__text-box {
+			right: 0;
+		}
+	}
+
+	//------страница списка услуг
+	.services {
+		&__items {
+			display: grid;
+			// grid-template-columns: repeat(3, minmax(200px, auto));
+			grid-template-columns: repeat(3, 1fr);
+			grid-column-gap: 50px;
+			grid-row-gap: 50px;
+			margin-top: 50px;
+		}
+	}
+
+	//------страница новостного блога главной страницы
+	.news {
+		&__container {
+			flex-direction: column;
+		}
+		&__block-left,
+		&__block-right {
+			margin: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+		&__block-right {
+			.news__title {
+				margin-top: 50px;
+			}
+		}
+		&__box {
+			margin-top: 25px;
+		}
+		&__feedback {
+			height: auto;
+		}
+		&__feedback-title {
+			margin: 0px 0px 33px;
+		}
+		&__calltodirector {
+			height: auto;
+		}
+	}
+	.feedback {
+		&__input-textarea {
+			max-width: 100%;
+		}
+	}
+	.calltodirector {
+		&__text {
+			margin-right: 30px;
+			max-width: 100%;
+			min-width: 0;
+			height: auto;
+		}
+	}
+
+	//------страница о клинике
+	.page-about {
+		&__items-left,
+		&__items-right {
+			width: auto;
+		}
+		&__items {
+			justify-content: space-around;
+		}
+	}
+
+	//------страница услуги
+	.page-services {
+		&__link {
+			margin: 20px 0;
+			height: 50px;
+		}
+	}
+
+	//------страница записи блога
+	.page-blog-note {
+		&__item {
+			min-width: 100%;
+		}
+		&__hints-container {
+			display: none;
+		}
+	}
+
+	//------футер
+	.footer {
+		&__menu {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			grid-column-gap: 50px;
+			grid-row-gap: 50px;
+		}
+		&__menu-block {
+			& + .footer__menu-block {
+				margin-left: 0;
+			}
+		}
+		&__map {
+			height: 350px;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	//------меню в шапке
+	.header {
+		&__call {
+			display: none;
+		}
+	}
+	.burger {
+		&__call {
+			display: block;
+			color: var(--main-color);
+			@media (hover: hover) {
+				&:hover {
+					background: var(--accent-color);
+					color: var(--text-white);
+				}
+			}
+		}
+	}
+
+	//------о нас на главной странице
+	.about {
+		&__ball {
+			width: 20.5vw;
+			height: 20.5vw;
+		}
+
+		&__num {
+			font-size: 15.55vw;
+			left: 3vw;
+		}
+
+		&__text {
+			left: 3vw;
+		}
+
+		&__item-1 {
+			grid-column: 1/6;
+		}
+
+		&__text-1 {
+			font-size: 3.3vw;
+		}
+
+		&__item-2 {
+			grid-column: 3/9;
+		}
+
+		&__text-2 {
+			font-size: 3.8vw;
+		}
+
+		&__item-3 {
+			grid-column: 6/11;
+			grid-row: 1;
+		}
+
+		&__text-3 {
+			font-size: 3.3vw;
+		}
+
+		&__item-4 {
+			grid-column: 1/6;
+		}
+
+		&__text-4 {
+			font-size: 4.8vw;
+		}
+
+		&__item-5 {
+			grid-column: 6/11;
+		}
+
+		&__text-5 {
+			font-size: 5.3vw;
+		}
+	}
+
+	//------странциа списка услуг
+	.page-services {
+		&__link-container {
+			padding: 0 50px;
+			margin: 0 -50px;
+		}
+		&__inner {
+			padding: 0 6%;
+			margin: 0 -6%;
+			margin-top: 25px;
+			flex-wrap: nowrap;
+			overflow: scroll;
+			justify-content: flex-start;
+		}
+		&__link {
+			margin: 15px 20px;
+			&:last-child {
+				padding-right: 30px;
+			}
+		}
+		&__category {
+			width: 100%;
+		}
+	}
+
+	//------страница списка блог
+	.page-blog {
+		&__item-link {
+			width: 100%;
+			&:nth-child(odd) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	//------страница списка акций
+	.page-sales {
+		&__items {
+			flex-direction: column;
+			margin-top: 60px;
+		}
+		&__item-link {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 750px) {
+	//------основные
+	.wrap {
+		grid-template-rows: 80px auto 80px;
+		grid-template-columns: minmax(5%, 1fr) minmax(0, 1600px) minmax(5%, 1fr);
+		grid-template-areas:
+			". . ."
+			". content ."
+			". . .";
+
+		min-height: 0;
+	}
+	.section {
+		&__container {
+			height: auto;
+			min-height: 0;
+		}
+	}
+
+	//------меню в шапке
+	.header {
+		&__top-adres-container {
+			display: none;
+		}
+		&__menu-container {
+			align-items: center;
+			height: auto;
+			padding: 6px 0 6px 0;
+			position: relative;
+		}
+		&__menu-block {
+			position: unset;
+		}
+		&__logo {
+			/*width: 50%;*/
+			height: 42px;
+		}
+		&__logo-link {
+			&--desktop {
+				display: none;
+			}
+			&--mobile {
+				display: block;
+				height: 100%;
+			}
+		}
+	}
+
+	//------услуги на главной странице
+	.services {
+		&__items {
+			margin-top: 50px;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	.category {
+		&__title {
+			font-size: 18px;
+			font-weight: 500;
+		}
+		&__title-child {
+			font-weight: 400;
+		}
+	}
+
+	//------страница списка услуг
+	.page-services {
+		&__item-box-left,
+		&__item-box-right {
+			width: 100%;
+		}
+		&__item-box-left {
+			margin-right: 0;
+		}
+	}
+
+	//------страница о клинике
+	.page-about {
+		&__items-left,
+		&__items-right {
+			width: 100%;
+		}
+		&__item--left {
+			flex-direction: column;
+		}
+		&__item--right {
+			flex-direction: column-reverse;
+		}
+		&__items-right &__item:nth-child(2) {
+			.page-about__item-title::before {
+				top: -120px !important;
+			}
+		}
+		&__items-right &__item:nth-child(3) {
+			.page-about__item-title::before {
+				top: 10px !important;
+			}
+		}
+
+		&__item-title {
+			text-align: left !important;
+			width: 100% !important;
+			&::before {
+				transform: scale(0.8);
+				top: -55px !important;
+			}
+		}
+		&__item-text {
+			margin-top: 10px;
+			width: 100% !important;
+		}
+	}
+
+	//------страница списка блога
+	.news {
+		&__box {
+			height: auto;
+		}
+		&__list {
+			padding: 8px;
+		}
+		&__feedback {
+			padding: 20px;
+			form {
+				flex-direction: column;
+			}
+		}
+		&__calltodirector {
+			padding: 20px;
+			flex-direction: column;
+		}
+	}
+	.feedback {
+		&__form-left {
+			padding: 0;
+		}
+		&__input-name,
+		&__input-phone,
+		&__input-email {
+			width: 100%;
+		}
+	}
+	.calltodirector {
+		&__btn-box {
+			margin-top: 20px;
+		}
+	}
+	//------страница врача
+	.page-doctor {
+		&__item-textbox {
+			display: flex;
+			flex-direction: column;
+		}
+		&__item-icons {
+			margin-bottom: 15px;
+		}
+		&__item-title {
+			width: 100%;
+			order: 1;
+		}
+		&__item-btn {
+			position: relative;
+			order: 4;
+			margin-top: 20px;
+		}
+		&__item-spec {
+			order: 2;
+		}
+		&__item-experience {
+			order: 3;
+		}
+		&__item-categories {
+			order: 3;
+		}
+		&__item-text {
+			order: 4;
+		}
+	}
+	//БЛОГ О ЗДОРОВЬЕ
+	.page-blog {
+		&__item-link {
+			max-height: 300px;
+		}
+	}
+	//------страница поиска
+	.page-search {
+		&__item-img {
+			display: none;
+		}
+	}
+	//------футер
+	.footer {
+		&__info {
+			flex-wrap: wrap;
+		}
+		&__info-block1,
+		&__info-block2,
+		&__info-block3,
+		&__info-block4 {
+			max-width: 100%;
+			margin-bottom: 20px;
+		}
+	}
+
+	//------SweetAlert2
+	.swal2-popup {
+		padding: 1.25em 0 !important;
+	}
+
+	//cookieinfo
+	.cookieinfo {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+
+@media (orientation: landscape) and (max-width: 750px) {
+	//меню в шапке
+	.header {
+		&__menu {
+			& ul {
+				padding: 10% 0;
+			}
+		}
+	}
+}
+
+@media (orientation: portrait) and (max-width: 500px) {
+	//------слайдер
+	.slider {
+		&__arrow-box {
+			display: none;
+		}
+	}
+
+	.slide {
+		&__img {
+			height: auto;
+			margin-top: 64px;
+		}
+		&__text-box {
+			padding: 30px;
+			left: 0;
+			right: 0;
+			bottom: 25%;
+		}
+		&__btn {
+			margin: 20px 0 0 0;
+			line-height: 1;
+			padding: 10px;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	//------кнопка "попказать еще"
+	.page-more {
+		&__btn {
+			width: 95%;
+			align-self: center;
+		}
+	}
+
+	//------услуги на главной странице
+	.services {
+		&__link {
+		}
+		&__items {
+			// grid-template-columns: 1fr;
+			grid-row-gap: 55px;
+			grid-column-gap: 15px;
+		}
+		&__item-link {
+		}
+		&__item {
+			height: 90px;
+		}
+		&__item-img {
+			padding-bottom: 10px;
+		}
+		&__items img {
+			height: 100%;
+		}
+		&__item-text {
+			font-size: 16px;
+		}
+	}
+
+	//------врачи на главной странице
+	.doctors {
+		&__item {
+			display: flex !important;
+			justify-content: center;
+		}
+		&__btn {
+			opacity: 1;
+		}
+	}
+
+	//------отзывы
+	.reviews {
+		&__items {
+			flex-direction: column;
+			margin-top: 50px;
+		}
+		&__item {
+			margin: 0 auto 70px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	//------страница услуг
+	.page-services {
+		&__container {
+			justify-content: start;
+		}
+		&__link-container {
+			padding: 0 30px;
+			margin: 0 -30px;
+		}
+		&__inner {
+			padding: 0 30px;
+			margin: 0 -30px;
+			margin-top: 25px;
+			flex-wrap: nowrap;
+			overflow: scroll;
+			justify-content: flex-start;
+		}
+		&__link {
+			height: 40px;
+			margin: 15px;
+		}
+	}
+	.category {
+		&__title,
+		&__title-child {
+			span {
+				display: none;
+			}
+		}
+	}
+
+	//------список акций
+	.page-sales {
+		&__item-link {
+			@media (hover: hover) {
+				&:hover {
+					box-shadow: none;
+					transform: none;
+				}
+			}
+		}
+		&__item {
+			flex-direction: column;
+			& img {
+				width: 100%;
+			}
+		}
+		&__item-text-box {
+			padding: 20px 0;
+		}
+	}
+
+	//------страница врача
+	.page-doctor {
+		&__items {
+			flex-wrap: wrap;
+		}
+		&__item-img {
+			width: 100%;
+			max-width: 100%;
+			margin: 0 auto 25px auto;
+		}
+	}
+
+	//БЛОГ О ЗДОРОВЬЕ
+	.page-blog {
+		&__item-link {
+			max-height: 200px;
+		}
+	}
+
+	//------футер
+	.footer {
+		&__contacts {
+			grid-template-columns: 1fr;
+		}
+		&__map {
+			height: 200px;
+		}
+		&__menu {
+			grid-template-columns: 1fr;
+			margin: 30px 0 50px 0;
+			grid-column-gap: 10px;
+			grid-row-gap: 10px;
+		}
+	}
+}

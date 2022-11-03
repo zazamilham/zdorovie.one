@@ -1,0 +1,72 @@
+/*===FullPage NAV===*/
+#fp-nav {
+	width: 30px;
+	left: 0px;
+	z-index: 5;
+	top: 50vh;
+}
+.fp-slidesNav.fp-bottom {
+	bottom: 10px;
+	text-align: center;
+	z-index: 5;
+}
+.fp-controlArrow {
+	border: 0;
+}
+.fp-controlArrow.fp-prev {
+	left: 30px;
+	// border: 0;
+}
+.fp-controlArrow.fp-next {
+	right: 60px;
+}
+
+/*===BG-color===*/
+.bg {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	transition: all 0.5s;
+}
+.bg2 {
+	background: var(--bg2);
+}
+.fp-viewing-1 .bg2 {
+	opacity: 1;
+}
+.bg2 + .active {
+	opacity: 1;
+}
+.bg3 {
+	background: var(--bg3);
+}
+.fp-viewing-2 .bg3 {
+	opacity: 1;
+}
+.bg4 {
+	background-image: var(--bg4);
+}
+.fp-viewing-3 .bg4 {
+	opacity: 1;
+}
+.bg5 {
+	background-image: var(--bg5);
+}
+.fp-viewing-4 .bg5 {
+	opacity: 1;
+}
+.bg6 {
+	background: var(--bg5);
+}
+.fp-viewing-5 .bg6 {
+	opacity: 1;
+}
+.bg7 {
+	background: var(--bg7);
+}
+.fp-viewing-6 .bg7 {
+	opacity: 1;
+}

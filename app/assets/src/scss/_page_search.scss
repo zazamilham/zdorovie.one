@@ -1,0 +1,106 @@
+//страница результатов поиска
+.page-search {
+  // .page-search__section
+  &__section {
+    background-image: linear-gradient(
+      12deg,
+      #aaffe6,
+      rgba(107, 166, 182, 0.52),
+      rgba(107, 166, 182, 0.39),
+      rgba(107, 166, 182, 0.21)
+    );
+    background-attachment: fixed;
+  }
+
+  // .page-search__items
+  &__items {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // margin-top: 60px;
+  }
+
+  // .page-search__item-link
+  &__item-link {
+    width: 100%;
+    max-width: 1000px;
+    border: 1px solid rgba($color: #08bfcc, $alpha: 0.3);
+    background: #fff;
+    border-radius: 3px;
+    margin-bottom: 40px;
+    transition: 0.3s;
+
+    // .page-search__item-link:hover
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: $shadow-hover;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  // .page-search__item
+  &__item {
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // .page-search__item-img
+  &__item-img {
+    display: block;
+    width: 30%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    &--docs {
+      width: 130px;
+    }
+  }
+
+  // .page-search__item-box
+  &__item-box {
+    padding: 35px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  // .page-search__item-type
+  &__item-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $text-white;
+    background: rgba($color: #08bfcc, $alpha: 0.3);
+    padding: 3px 10px;
+    border-radius: 0 0 3px 0;
+    font-size: 13px;
+  }
+
+  // .page-search__item-title
+  &__item-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
+
+  // .page-search__item-doctors-spec
+  // .page-search__item-date
+  &__item-doctors-spec,
+  &__item-date {
+    color: $main-color;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.35px;
+    margin-top: 3px;
+  }
+
+  // .page-search__item-text
+  &__item-text {
+    // margin-top: 15px;
+  }
+}

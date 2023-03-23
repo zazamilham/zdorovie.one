@@ -1,0 +1,18 @@
+//общее
+.page-more {
+  // .page-more__btn
+  &__btn {
+    color: #fff;
+    background: #08bfcc;
+    align-self: flex-start;
+    border: 1px solid #08bfcc;
+    cursor: pointer;
+
+    // .page-more__btn:hover
+    @media (hover: hover) {
+      &:hover {
+        background: $accent-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,188 @@
+//БЛОГ О ЗДОРОВЬЕ
+.page-blog {
+  // .page-blog__section
+  &__section {
+  }
+
+  // .page-blog__container
+  &__container {
+  }
+
+  // .page-blog__title
+  &__title {
+    & span {
+      font-size: inherit;
+      font-weight: 300;
+      color: $main-color;
+    }
+  }
+
+  // .page-blog__items
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+
+  // .page-blog__item-link
+  &__item-link {
+    position: relative;
+    transition: 0.3s;
+    border-radius: 6px;
+
+    // .page-blog__item-link:hover
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: $shadow-hover;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  // .page-blog__item
+  &__item {
+    position: relative;
+    width: 100%;
+    vertical-align: bottom;
+    border-radius: 6px;
+    overflow: hidden;
+
+    // .page-blog__item::after
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: rgba(107, 166, 182, 0.7);
+      transition: background-color 0.3s;
+    }
+
+    // .page-blog__item::before
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 36.5%;
+    }
+
+    // .page-blog__item:hover::after
+    @media (hover: hover) {
+      &:hover::after {
+        background-color: rgba(107, 166, 182, 0.1);
+      }
+      &:hover .page-blog__item-date,
+      &:hover .page-blog__item-title,
+      &:hover .page-blog__item-text {
+        color: inherit;
+      }
+    }
+  }
+
+  // .page-blog__item-img
+  &__item-img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    transition: filter 0.3s;
+  }
+
+  // .page-blog__item-box
+  &__item-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1vw;
+  }
+
+  // .page-blog__item-type
+  &__item-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    background: rgba($color: #000, $alpha: 0.3);
+    padding: 10px 15px;
+    border-radius: 0 3px 0 3px;
+    z-index: 1;
+  }
+
+  // .page-blog__item-date
+  // .page-blog__item-title
+  // .page-blog__item-text
+  &__item-date,
+  &__item-title,
+  &__item-text {
+    color: $text-white;
+    background: none;
+    padding: 3px 6px;
+    transition: 0.3s;
+    margin-bottom: 5px;
+    width: fit-content;
+    z-index: 1;
+    // background: rgba($color: #000, $alpha: 0.3);
+    transition: color 0.3s;
+  }
+
+  // .page-blog__item-date
+  &__item-date {
+    font-size: 12px;
+    margin-bottom: auto;
+  }
+
+  // .page-blog__item-title
+  &__item-title {
+    // font-size: 24px;
+    font-size: calc(16px + 8 * ((100vw - 320px) / (1920 - 320)));
+    font-weight: 500;
+  }
+
+  // .page-blog__item-text
+  &__item-text {
+    overflow: hidden;
+    // font-size: 16px;
+    font-size: calc(14px + 2 * ((100vw - 320px) / (1920 - 320)));
+    text-align: left;
+    margin-bottom: 0;
+
+    // .page-blog__item-text p
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// .sale-marker
+.sale-marker {
+  color: $text-white;
+  padding: calc(0.667em + 2px) calc(1.333em + 2px);
+  border-radius: 3px;
+  width: min-content;
+  margin-top: 10px;
+  white-space: nowrap;
+
+  // .sale-marker.green
+  &.green {
+    background: rgb(233, 229, 10);
+  }
+
+  // .sale-marker.red
+  &.red {
+    background: red;
+  }
+}

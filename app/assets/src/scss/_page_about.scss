@@ -1,0 +1,178 @@
+//О НАС
+.page-about {
+  // .page-about__section
+  &__section {
+    color: $text;
+  }
+
+  // .page-about__container
+  &__container {
+  }
+
+  // .page-about__title
+  &__title {
+  }
+
+  // .page-about__items
+  &__items {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  // .page-about__items-left
+  // .page-about__items-right
+  &__items-left,
+  &__items-right {
+    width: 47%;
+  }
+
+  // .page-about__items-left .page-about__item:nth-child(1)
+  &__items-left .page-about__item:nth-child(1) {
+    opacity: 0;
+    animation: fadeInUp 1s 0s 1 forwards;
+    .page-about__item-title::before {
+      content: url(../img/about__family.png);
+      position: absolute;
+    }
+  }
+
+  // .page-about__items-left .page-about__item:nth-child(2)
+  &__items-left .page-about__item:nth-child(2) {
+    opacity: 0;
+    animation: fadeInUp 1s 0.2s 1 forwards;
+
+    // .page-about__items-left .page-about__item:nth-child(2) .page-about__item-title::before
+    .page-about__item-title::before {
+      content: url(../img/about__home.png);
+      position: absolute;
+      top: -25px;
+      right: 0;
+    }
+  }
+
+  // .page-about__items-left .page-about__item:nth-child(3)
+  &__items-left .page-about__item:nth-child(3) {
+    opacity: 0;
+    animation: fadeInUp 1s 0.4s 1 forwards;
+  }
+
+  // .page-about__items-left .page-about__item:nth-child(4)
+  &__items-left .page-about__item:nth-child(4) {
+    opacity: 0;
+    animation: fadeInUp 1s 0.4s 1 forwards;
+
+    // .page-about__items-left .page-about__item:nth-child(4) .page-about__item-title::before
+    .page-about__item-title::before {
+      content: url(../img/about__healthcare.png);
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  // .page-about__items-right .page-about__item:nth-child(1)
+  &__items-right .page-about__item:nth-child(1) {
+    opacity: 0;
+    animation: fadeInUp 1s 0.6s 1 forwards;
+    margin-bottom: 150px;
+
+    // .page-about__items-right .page-about__item:nth-child(1) .page-about__item-title::before
+    .page-about__item-title::before {
+      content: url(../img/about__electrocardiogram.png);
+      position: absolute;
+    }
+  }
+
+  // .page-about__items-right .page-about__item:nth-child(2)
+  &__items-right .page-about__item:nth-child(2) {
+    opacity: 0;
+    animation: fadeInUp 1s 0.8s 1 forwards;
+
+    // .page-about__items-right .page-about__item:nth-child(2) .page-about__item-title::before
+    .page-about__item-title::before {
+      content: url(../img/about___education.png);
+      position: absolute;
+      top: -130px;
+      right: 0;
+    }
+  }
+
+  // .page-about__items-right .page-about__item:nth-child(3)
+  &__items-right .page-about__item:nth-child(3) {
+    opacity: 0;
+    animation: fadeInUp 1s 1s 1 forwards;
+
+    // .page-about__items-right .page-about__item:nth-child(3)  .page-about__item-title::before
+    .page-about__item-title::before {
+      content: url(../img/about__happy-house.png);
+      position: absolute;
+      top: -50px;
+    }
+  }
+
+  // .page-about__items-right .page-about__item:nth-child(4)
+  &__items-right .page-about__item:nth-child(4) {
+    opacity: 0;
+    animation: fadeInUp 1s 1s 1 forwards;
+  }
+
+  // .page-about__item
+  &__item {
+    display: flex;
+    margin-bottom: 50px;
+    min-width: 50%;
+    max-width: 100%;
+  }
+
+  // .page-about__item-title
+  &__item-title {
+    position: relative;
+    width: 285px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    color: $main-color;
+  }
+
+  // .page-about__item-text
+  &__item-text {
+    width: 400px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  // .page-about__item--left
+  &__item--left {
+    .page-about__item-title {
+      text-align: left;
+    }
+  }
+
+  // .page-about__item--right
+  &__item--right {
+    .page-about__item-title {
+      text-align: right;
+    }
+  }
+
+  // .page-about__item--wide
+  &__item--wide {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 685px;
+
+    // .page-about__item--wide .page-about__item-title
+    .page-about__item-title {
+      width: 100%;
+      text-align: center;
+    }
+
+    // .page-about__item--wide .page-about__item-text
+    .page-about__item-text {
+      margin-bottom: 30px;
+      width: 100%;
+    }
+  }
+}

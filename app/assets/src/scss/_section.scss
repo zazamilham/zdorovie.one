@@ -1,0 +1,219 @@
+/*===sections style===*/
+.section {
+  position: relative;
+  width: 100%;
+  // min-height: 100vh;
+
+  // .section__container
+  &__container {
+    width: 100%;
+    // min-height: 100%;
+    position: relative;
+    // padding: 160px 0 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: content;
+  }
+
+  // .section__description
+  &__description {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  // .section__search
+  &__search {
+    z-index: 4;
+  }
+
+  // .section__search-form
+  &__search-form {
+    display: flex;
+    flex-direction: row;
+    // margin-top: 40px;
+    // width: 320px;
+
+    // .section__search-form input
+    & input {
+      width: 100%;
+      font-size: 18px;
+      border-radius: 3px 0 0 3px;
+    }
+  }
+
+  // .section__search-btn
+  &__search-btn {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 0 3px 3px 0;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: 0.35px;
+    color: $text-white;
+    background: $main-color;
+    transition: 0.1s;
+    outline: none;
+
+    @media (hover: hover) {
+      // .section__search-btn:hover
+      &:hover {
+        background: $accent-color;
+        outline: none;
+      }
+    }
+
+    // .section__search-btn:active
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+
+  // .section__title
+  &__title {
+    // font-size: 36px;
+    font-size: calc(20px + 16 * ((100vw - 320px) / (1920 - 320)));
+    // font-weight: 600;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $text;
+    max-width: 850px;
+    // max-width: 16em;
+  }
+
+  // .section__text
+  &__text {
+    // max-width: 850px;
+    // max-width: 600px;
+    margin-top: 20px;
+    color: $text;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  // .section__link
+  &__link {
+    margin-top: 20px;
+    color: $text;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 100%;
+    border: 1px solid $text;
+    border-radius: 3px;
+    text-align: center;
+    // padding: 5px 20px;
+    padding: calc(0.667em + 2px) calc(1.333em + 2px);
+    transition: 0.1s;
+    cursor: pointer;
+
+    &:active,
+    &:focus {
+      border: 1px solid $text;
+    }
+
+    // .section__link i
+    & i {
+      margin-right: 5px;
+      // vertical-align: middle;
+      transition: 0.1s;
+    }
+    @media (hover: hover) {
+      // .section__link:hover
+      &:hover {
+        background: $accent-color;
+        color: $text-white;
+        border: 1px solid $accent-color;
+        & i {
+          color: $text-white;
+        }
+      }
+    }
+  }
+
+  // .section__link--blue
+  &__link--blue {
+    color: $main-color;
+    border: 1px solid $main-color;
+    transition: all 0.1s;
+
+    &:active,
+    &:focus {
+      border: 1px solid $main-color;
+    }
+
+    @media (hover: hover) {
+      // .section__link--blue:hover
+      &:hover {
+        border: 1px solid $accent-color;
+        color: $text-white;
+        & i {
+          color: $text-white;
+        }
+      }
+    }
+  }
+
+  // .services__link--white
+  &__link--white {
+    color: $text-white;
+    border: 1px solid $text-white;
+    transition: all 0.1s;
+
+    &:active,
+    &:focus {
+      border: 1px solid $text-white;
+    }
+
+    @media (hover: hover) {
+      // .services__link--white:hover
+      &:hover {
+        background: $text-white;
+        color: $accent-color;
+        border: 1px solid $text-white;
+        // .services__link--white:hover i
+        & i {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+
+  // .section__link--fu
+  &__link--fu {
+    color: $text;
+    background: $fu-color;
+    border: 1px solid $text;
+    transition: all 0.1s;
+
+    &:active,
+    &:focus {
+      border: 1px solid $text;
+    }
+
+    @media (hover: hover) {
+      // .section__link--fu:hover
+      &:hover {
+        border: 1px solid $accent-color;
+        color: $text-white;
+        & i {
+          color: $text-white;
+        }
+      }
+    }
+  }
+
+  // .section__items
+  &__items {
+    display: flex;
+    // margin-top: 50px;
+  }
+}

@@ -1,0 +1,57 @@
+/*===404 style===*/
+.ff {
+  // .ff__section
+  &__section {
+  }
+
+  // .ff__container
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  // .ff__bg
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // background: $main-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50vw;
+    font-weight: 700;
+    -webkit-text-stroke: 3px $main-color;
+    -webkit-text-fill-color: transparent;
+    z-index: -1;
+  }
+
+  // .ff__title
+  // .ff__text
+  &__title,
+  &__text {
+    color: $text-white;
+    background: rgba(#08bfcc, 0.8);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+
+  // .ff__title
+  &__title {
+    font-size: 50px;
+    border-radius: 3px 3px 0 0;
+    padding: 10px 0 0 0;
+  }
+
+  // .ff__text
+  &__text {
+    font-size: 20px;
+    margin: 0;
+    border-radius: 0 0 3px 3px;
+    padding: 0 0 10px 0;
+  }
+}

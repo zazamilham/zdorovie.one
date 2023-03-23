@@ -1,0 +1,268 @@
+/*===doctors style===*/
+.doctors {
+  color: $text;
+
+  // .doctors__section
+  &__section {
+    background: $bg4;
+    background-attachment: fixed;
+  }
+
+  // .doctors__container
+  &__container {
+  }
+
+  // .doctors__title
+  &__title {
+  }
+
+  // .doctors__items
+  &__items {
+    position: relative;
+    // margin-top: 60px;
+    margin-bottom: 40px;
+
+    // .doctors__items .slick-slide
+    & .slick-slide {
+      // margin: 60px 25px 0 0;
+      margin: 10px;
+
+      // .doctors__items .slick-slide div
+      div {
+        text-align: center;
+      }
+    }
+
+    // .doctors__items .slick-arrows
+    & .slick-arrows {
+      cursor: pointer;
+      transform: scale(2);
+      color: $text-color-section-title;
+      position: absolute;
+      top: 45%;
+      transition: 0.2s;
+      &::before {
+        font-size: 18px;
+      }
+      @media (hover: hover) {
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+
+    // .doctors__items .slick-prev
+    & .slick-prev {
+      left: -15px;
+    }
+
+    // .doctors__items .slick-next
+    & .slick-next {
+      right: -15px;
+    }
+  }
+
+  // .doctors__item
+  &__item {
+    position: relative;
+    margin: 5px;
+    // margin: 10px 10px 40px 10px;
+    margin: 0;
+    border-radius: 3px 3px 0 0;
+    text-align: center;
+    overflow: hidden;
+    width: auto !important;
+
+    // .doctors__item:first-child
+    &:first-child {
+      margin-left: 0;
+    }
+
+    // .doctors__item:last-child
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media (hover: hover) {
+      // .doctors__item:last-child:hover .doctors__btn
+      &:hover .doctors__btn {
+        border-radius: 0 0 3px 3px;
+      }
+
+      // .doctors__item:hover .doctors__select-btn
+      &:hover .doctors__select-btn {
+        border-radius: 3px;
+      }
+
+      // .doctors__item:last-child:hover .doctors__id-link
+      &:hover .doctors__id-link {
+        transform: translateY(-42px);
+      }
+
+      // .doctors__item:last-child:hover .doctors__disc
+      &:hover .doctors__disc {
+        border-radius: 0;
+      }
+    }
+  }
+
+  // .doctors__id-link
+  &__id-link {
+    position: relative;
+    max-width: 240px;
+    width: 100%;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  // .doctors__img
+  &__img {
+    display: block;
+    background: #fff;
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3px 3px 0 0;
+  }
+
+  // .doctors__disc
+  &__disc {
+    background: #fff;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 0 3px 3px;
+  }
+
+  // .doctors__name
+  &__name {
+    text-align: center;
+    color: $text;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.35px;
+    padding: 5px 15px;
+    margin: 0;
+  }
+
+  // .doctors__spec
+  &__spec {
+    text-align: center;
+    color: $main-color;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.35px;
+    padding: 5px 15px;
+    margin: 0;
+  }
+
+  // .doctors__btn
+  &__btn {
+    position: absolute;
+    bottom: 0;
+    margin-top: 3px;
+    text-align: center;
+    border-radius: 3px;
+    width: 100%;
+    transition: 0.3s;
+    display: block;
+    height: 42px;
+    max-width: 240px;
+    width: 100%;
+    color: $text-white;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 32px;
+    padding: 5px;
+    transition: 0.3s;
+    background: $main-color;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+
+    @media (hover: hover) {
+      // .doctors__btn:hover
+      &:hover {
+        background: $accent-color;
+      }
+    }
+  }
+
+  // .doctors__select-box
+  &__select-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 144px;
+    background: $fu-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 3px 3px;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    z-index: 1;
+
+    // .doctors__select-box.active
+    &.active {
+      transform: translateY(0);
+    }
+  }
+
+  // .poctors__select-title
+  &__select-title {
+    color: $text;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  // .doctors__select-btn
+  &__select-btn {
+    position: relative;
+    margin: 5px;
+    width: 90%;
+    border-radius: 3px;
+    margin: auto;
+
+    // .doctors__select-btn:hover
+    @media (hover: hover) {
+      &:hover {
+        border-radius: 3px;
+      }
+    }
+  }
+
+  // .doctors__visit-link
+  &__visit-link {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    color: $text-white;
+    background: $main-color;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 32px;
+    padding: 5px;
+    transition: 0.3s;
+
+    @media (hover: hover) {
+      // .doctors__visit-link:hover
+      &:hover {
+        background: $accent-color;
+      }
+    }
+  }
+
+  // .doctors__join-btn
+  &__join-btn {
+    // margin-top: 30px;
+    width: fit-content;
+    cursor: pointer;
+  }
+}

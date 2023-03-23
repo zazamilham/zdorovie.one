@@ -1,0 +1,192 @@
+//СТРАНИЦА ВРАЧА
+.page-doctor {
+  color: $text;
+
+  // .page-doctor__section
+  &__section {
+  }
+
+  // .page-doctor__section
+  &__section {
+  }
+
+  // .page-doctor__container
+  &__container {
+  }
+
+  // .page-doctor__title
+  &__title {
+  }
+
+  // .page-doctor__items
+  &__items {
+    margin-top: 30px;
+    align-items: flex-start;
+  }
+
+  // .page-doctor__item-img
+  &__item-img {
+    width: 460px;
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-right: 40px;
+  }
+
+  // .page-doctor__item-textbox
+  &__item-textbox {
+    position: relative;
+    width: 100%;
+  }
+
+  // .page-doctor__item-icons
+  &__item-icons {
+    margin-bottom: 25px;
+
+    // .page-doctor__item-icons i
+    // .page-doctor__item-icons svg
+    & i,
+    & svg {
+      position: relative;
+      font-size: 30px;
+      margin-right: 20px;
+      color: $main-color;
+
+      // .page-doctor__item-icons i:hover::after
+      // .page-doctor__item-icons svg:hover::after
+      @media (hover: hover) {
+        &:hover::after {
+          position: absolute;
+          content: attr(data-title);
+          font-family: "Roboto", sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          background: rgba(255, 255, 255, 0.8);
+          color: $text;
+          top: -45px;
+          left: 0;
+          width: auto;
+          white-space: nowrap;
+          z-index: 1;
+          border: 1px solid $main-color;
+          border-radius: 3px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  // .page-doctor__item-title
+  &__item-title {
+    width: calc(100% - 200px);
+    font-size: 24px;
+    font-weight: 500;
+    color: $text;
+  }
+
+  // .page-doctor__item-record
+  &__item-record {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $fu-color;
+    padding: 15px;
+    border-radius: 3px;
+  }
+
+  // .page-doctor__item-record-title
+  &__item-record-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: $text;
+    margin-bottom: 5px;
+  }
+
+  // .page-doctor__item-btn
+  &__item-btn {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    width: -webkit-fill-available;
+    margin: 5px 0;
+
+    // .page-doctor__item-btn--m-auto
+    &--m-auto {
+      margin: auto;
+    }
+
+    // .page-doctor__item-btn:hover
+    @media (hover: hover) {
+      &:hover {
+        background: $accent-color;
+      }
+    }
+
+    // .page-doctor__item-btn + .page-doctor__item-btn
+    & + .page-doctor__item-btn {
+      top: 50px;
+    }
+  }
+
+  // .page-doctor__item-spec
+  &__item-spec {
+    margin-top: 20px;
+    color: $main-color;
+  }
+
+  // .page-doctor__item-experience
+  // .page-doctor__item-categories
+  &__item-experience,
+  &__item-categories {
+    margin-top: 10px;
+    opacity: 0.6;
+    font-size: 12px;
+  }
+
+  // .page-doctor__item-text
+  &__item-text {
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text;
+
+    // .page-doctor__item-text p
+    p {
+      // font-size: 16px;
+      // line-height: 1.5;
+      // color: $text;
+      // margin-bottom: 15px;
+    }
+
+    // .page-doctor__item-text a
+    a {
+      // text-decoration: underline;
+      // font-weight: inherit;
+    }
+
+    // .page-doctor__item-text ul
+    ul {
+      // list-style: disc;
+      // margin-bottom: 15px;
+      // padding-left: 1.3em;
+    }
+
+    // .page-doctor__item-text li
+    li {
+      // margin-bottom: initial;
+      // list-style: disc;
+      // display: list-item;
+    }
+    //обнуляем WP стили
+    .wp-block-image,
+    .wp-block-cover {
+      margin: 30px 0;
+    }
+  }
+}

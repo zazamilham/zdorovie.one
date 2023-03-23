@@ -1,0 +1,979 @@
+@media (pointer: coarse) {
+	//------меню в шапке
+	.burger {
+		@media (hover: hover) {
+			// .burger:hover
+			&:hover {
+				background: $main-color;
+			}
+		}
+	}
+}
+
+@media (orientation: portrait) {
+	//------меню в шапке
+	.fp-controlArrow {
+		display: none;
+	}
+}
+
+@media (max-width: 1750px) {
+	//------меню в шапке
+	.burger {
+		display: flex;
+	}
+	.header {
+		// .header__menu
+		&__menu {
+			position: absolute;
+			display: flex;
+			top: 0;
+			right: -15px;
+			// width: 100%;
+			background: $main-color;
+			transform: translatex(100%);
+			transition: transform 0.3s linear;
+			justify-content: center;
+			height: 100vh;
+			padding: 15px;
+			box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.15);
+
+			// .header__menu ul
+			& ul {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				height: 100%;
+				padding: 15% 0;
+				height: 60vh;
+			}
+		}
+
+		// .header__list-item
+		&__list-item {
+			// .header__list-item:last-child
+			&:last-child {
+				margin-right: 16px;
+			}
+
+			// .header__list-item a
+			& a {
+				color: $text-white;
+
+				@media (hover: hover) {
+					// .header__list-item a:hover
+					&:hover {
+						color: $text-white;
+
+						// .header__list-item a:hover::before
+						&::before {
+							background-color: $text-white;
+						}
+					}
+				}
+			}
+		}
+
+		// .header__search--active
+		&__search--active {
+			width: 557px;
+		}
+	}
+}
+
+@media (max-width: 1300px) {
+	//------слайдер
+	.slide {
+		// .slide__text-box
+		&__text-box {
+			right: 0;
+		}
+	}
+	//------страница врача
+	.page-doctor {
+		// .page-doctor__item-textbox
+		&__item-textbox {
+			display: flex;
+			flex-direction: column;
+		}
+
+		// .page-doctor__item-title
+		&__item-title {
+			width: 100%;
+			order: 1;
+		}
+
+		// .page-doctor__item-spec
+		&__item-spec {
+			order: 2;
+		}
+
+		// .page-doctor__item-experience
+		&__item-experience {
+			order: 3;
+		}
+
+		// .page-doctor__item-categories
+		&__item-categories {
+			order: 3;
+		}
+
+		// .page-doctor__item-record
+		&__item-record {
+			position: relative;
+			order: 4;
+			margin-top: 20px;
+			width: fit-content;
+		}
+
+		// .page-doctor__item-text
+		&__item-text {
+			order: 5;
+		}
+	}
+
+	//------страница списка услуг
+	.services {
+		// .services__items
+		&__items {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(200px, auto));
+			// grid-template-columns: repeat(4, 1fr);
+			grid-column-gap: 50px;
+			grid-row-gap: 50px;
+			margin-top: 50px;
+		}
+	}
+
+	.about__items {
+		margin-top: 50px;
+	}
+
+	//------страница новостного блога главной страницы
+	.news {
+		// .news__container
+		&__container {
+			flex-direction: column;
+		}
+		// .news__block-left
+		// .news__block-right
+		&__block-left,
+		&__block-right {
+			margin: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+
+		// .news__block-right
+		&__block-right {
+			// .news__block-right .news__title
+			& .news__title {
+				margin-top: 60px;
+			}
+		}
+
+		// .news__box
+		&__box {
+			margin-top: 25px;
+			height: auto;
+		}
+
+		// .news__feedback
+		&__feedback {
+			height: auto;
+		}
+
+		// .news__feedback-title
+		&__feedback-title {
+			// margin: 0px 0px 33px;
+			margin: 0px 0px 20px;
+		}
+
+		// .news__calltodirector
+		&__calltodirector {
+			height: auto;
+		}
+	}
+	.feedback {
+		// .feedback__input-textarea
+		&__input-textarea {
+			max-width: 100%;
+		}
+	}
+	.calltodirector {
+		// .calltodirector__text
+		&__text {
+			max-width: 100%;
+			min-width: 0;
+			height: auto;
+		}
+	}
+
+	//------страница о клинике
+	.page-about {
+		// .page-about__items-left
+		// .page-about__items-right
+		&__items-left,
+		&__items-right {
+			width: auto;
+		}
+
+		// .page-about__items
+		&__items {
+			justify-content: space-around;
+		}
+	}
+
+	//------страница услуги
+	.page-services {
+		// .page-services__link
+		&__link {
+			margin: 20px 0;
+			height: 50px;
+		}
+	}
+
+	//------страница записи блога
+	.page-blog-note {
+		// .page-blog-note__item
+		&__item {
+			min-width: 100%;
+		}
+
+		// .page-blog-note__hints-container
+		&__hints-container {
+			display: none;
+		}
+	}
+
+	//------футер
+	.footer {
+		// .footer__menu
+		&__menu {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			grid-column-gap: 50px;
+			grid-row-gap: 50px;
+		}
+
+		// .footer__menu-block
+		&__menu-block {
+			// .footer__menu-block + .footer__menu-block
+			& + .footer__menu-block {
+				margin-left: 0;
+			}
+		}
+
+		// .footer__map
+		&__map {
+			height: 350px;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	//------меню в шапке
+	.header {
+		// .header__call
+		&__call {
+			display: none;
+		}
+
+		// .header__search--active
+		&__search--active {
+			width: 90%;
+		}
+	}
+	.burger {
+		// .burger__call
+		&__call {
+			display: block;
+			color: $main-color;
+
+			@media (hover: hover) {
+				// .burger__call:hover
+				&:hover {
+					background: $accent-color;
+					color: $text-white;
+				}
+			}
+		}
+	}
+
+	//------о нас на главной странице
+	.about {
+		// .about__ball
+		&__ball {
+			width: 20.5vw;
+			height: 20.5vw;
+		}
+
+		// .about__num
+		&__num {
+			font-size: 15.55vw;
+			left: 3vw;
+		}
+
+		// .about__text
+		&__text {
+			left: 3vw;
+		}
+
+		// .about__item-1
+		&__item-1 {
+			grid-column: 1/6;
+		}
+
+		// .about__text-1
+		&__text-1 {
+			font-size: 3.3vw;
+		}
+
+		// .about__item-2
+		&__item-2 {
+			grid-column: 3/9;
+		}
+
+		// .about__text-2
+		&__text-2 {
+			font-size: 3.8vw;
+		}
+
+		// .about__item-3
+		&__item-3 {
+			grid-column: 6/11;
+			grid-row: 1;
+		}
+
+		// .about__text-3
+		&__text-3 {
+			font-size: 3.3vw;
+		}
+
+		// .about__item-4
+		&__item-4 {
+			grid-column: 1/6;
+		}
+
+		// .about__text-4
+		&__text-4 {
+			font-size: 4.8vw;
+		}
+
+		// .about__item-5
+		&__item-5 {
+			grid-column: 6/11;
+		}
+
+		// .about__text-5
+		&__text-5 {
+			font-size: 5.3vw;
+		}
+	}
+
+	//------странциа списка услуг
+	.page-services {
+		// .page-services__link-container
+		&__link-container {
+			padding: 0 50px;
+			margin: 0 -50px;
+		}
+
+		// .page-services__inner
+		&__inner {
+			padding: 0 6%;
+			margin: 0 -6%;
+			margin-top: 25px;
+			flex-wrap: nowrap;
+			overflow: scroll;
+			// justify-content: flex-start;
+		}
+
+		// .page-services__link
+		&__link {
+			margin: 15px 20px;
+
+			// .page-services__link:last-child
+			&:last-child {
+				// padding-right: 30px;
+			}
+		}
+
+		// .page-services__category
+		&__category {
+			width: 100%;
+		}
+	}
+
+	//------страница списка блог
+	.page-blog {
+		// .page-blog__items
+		&__items {
+			grid-template-columns: repeat(1, 1fr);
+			// grid-row-gap: 0.5%;
+		}
+	}
+
+	//------страница списка акций
+	.page-sales {
+		// .page-sales__items
+		&__items {
+			flex-direction: column;
+			margin-top: 60px;
+		}
+
+		// .page-sales__item-link
+		&__item-link {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	//------основные
+	.wrap {
+		grid-template-rows: 64px auto 50px;
+
+		// .wrap--blog
+		&--blog {
+			grid-template-rows: 90px auto 50px;
+		}
+
+		// .wrap--slide-cover
+		&--slide-cover {
+			grid-template-rows: auto 50px;
+		}
+
+		// .wrap--margin
+		&--margin {
+			grid-template-rows: 90px auto 50px;
+		}
+
+		// .wrap--footer
+		&--footer {
+			grid-template-rows: 64px auto auto auto 130px;
+		}
+	}
+	.section {
+		// .section__container
+		&__container {
+			height: auto;
+			min-height: 0;
+		}
+	}
+
+	//------меню в шапке
+	.header {
+		// .header__top-adres-container
+		&__top-adres-container {
+			display: none;
+		}
+
+		// .header__menu-container
+		&__menu-container {
+			align-items: center;
+			height: auto;
+			padding: 6px 0 6px 0;
+			position: relative;
+		}
+
+		// .header__menu-block
+		&__menu-block {
+			position: unset;
+		}
+
+		// .header__logo
+		&__logo {
+			/*width: 50%;*/
+			height: 42px;
+		}
+
+		// .header__logo-link
+		&__logo-link {
+			// .header__logo-link--desktop
+			&--desktop {
+				display: none;
+			}
+
+			// .header__logo-link--mobile
+			&--mobile {
+				display: block;
+				height: 100%;
+			}
+		}
+
+		// .header__search--active
+		&__search--active {
+			width: 100%;
+		}
+	}
+
+	//------услуги на главной странице
+	.services {
+		// .services__items
+		&__items {
+			margin-top: 50px;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	.category {
+		// .category__title
+		&__title {
+			font-size: 18px;
+			font-weight: 500;
+		}
+
+		// .category__title-child
+		&__title-child {
+			font-weight: 400;
+		}
+	}
+
+	//------страница списка услуг
+	.page-services {
+		// .page-services__item-box-left
+		// .page-services__item-box-right
+		&__item-box-left,
+		&__item-box-right {
+			width: 100%;
+		}
+
+		// .page-services__item-box-left
+		&__item-box-left {
+			margin-right: 0;
+		}
+	}
+
+	//------страница о клинике
+	.page-about {
+		// .page-about__items-left
+		// .page-about__items-right
+		&__items-left,
+		&__items-right {
+			width: 100%;
+		}
+
+		// .page-about__item--left
+		&__item--left {
+			flex-direction: column;
+		}
+
+		// .page-about__item--right
+		&__item--right {
+			flex-direction: column-reverse;
+		}
+
+		// .page-about__items-right .page-about__item:nth-child(2)
+		&__items-right .page-about__item:nth-child(2) {
+			.page-about__item-title::before {
+				top: -120px !important;
+			}
+		}
+
+		// .page-about__items-right .page-about__item:nth-child(3)
+		&__items-right .page-about__item:nth-child(3) {
+			.page-about__item-title::before {
+				top: 10px !important;
+			}
+		}
+
+		// .page-about__item-title
+		&__item-title {
+			text-align: left !important;
+			width: 100% !important;
+
+			// .page-about__item-title::before
+			&::before {
+				transform: scale(0.8);
+				top: -55px !important;
+			}
+		}
+
+		// .page-about__item-text
+		&__item-text {
+			margin-top: 10px;
+			width: 100% !important;
+		}
+	}
+
+	//------страница списка блога
+	.news {
+		// .news__box
+		&__box {
+		}
+
+		// .news__list
+		&__list {
+			padding: 8px;
+		}
+
+		// .news__feedback
+		&__feedback {
+			padding: 20px;
+		}
+
+		// .news__calltodirector
+		&__calltodirector {
+			padding: 20px;
+			flex-direction: column;
+			gap: 0;
+		}
+	}
+	.feedback {
+		// .feedback__form-box
+		&__form-box {
+			flex-direction: column;
+		}
+
+		// .feedback__form-left
+		&__form-left {
+			padding: 0;
+		}
+
+		// .feedback__input-name
+		// .feedback__input-phone
+		// .feedback__input-email
+		&__input-name,
+		&__input-phone,
+		&__input-email {
+			width: 100%;
+		}
+	}
+	.calltodirector {
+		// .calltodirector__btn-box
+		&__btn-box {
+			margin-top: 20px;
+		}
+	}
+	//------страница врача
+	.page-doctor {
+		// .page-doctor__item-icons
+		&__item-icons {
+			margin-bottom: 15px;
+		}
+	}
+
+	//------страница поиска
+	.page-search {
+		// .page-search__item
+		&__item {
+			max-height: unset;
+		}
+
+		// .page-search__item-img
+		&__item-img {
+			display: none;
+		}
+	}
+	//------футер
+	.footer {
+		// .footer__info
+		&__info {
+			flex-wrap: wrap;
+		}
+
+		// .footer__info-block1
+		// .footer__info-block2
+		// .footer__info-block3
+		// .footer__info-block4
+		&__info-block1,
+		&__info-block2,
+		&__info-block3,
+		&__info-block4 {
+			max-width: 100%;
+			margin-bottom: 20px;
+		}
+
+		// .footer__def
+		&__dev {
+			align-items: flex-start;
+			flex-direction: column;
+			row-gap: 15px;
+		}
+	}
+
+	//------SweetAlert2
+	.swal2-popup {
+		padding: 1.25em 0 !important;
+	}
+
+	//cookieinfo
+	.cookieinfo {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+
+@media (orientation: landscape) and (max-width: 750px) {
+	//меню в шапке
+	.header {
+		// .header__menu
+		&__menu {
+			// .header__menu ul
+			& ul {
+				padding: 10% 0;
+			}
+		}
+	}
+
+	/*===slider style===*/
+	.slider {
+		// .slider__section
+		&__section {
+			padding-top: 64px;
+			margin-bottom: 64px;
+		}
+	}
+}
+
+@media (orientation: portrait) and (max-width: 500px) {
+	//------слайдер
+	.slider__arrow {
+		display: none !important;
+	}
+
+	.slide {
+		// .slide__img
+		&__img {
+			height: auto;
+			margin-top: 64px;
+		}
+
+		// .slide__text-box
+		&__text-box {
+			padding: 30px;
+			left: 0;
+			right: 0;
+			bottom: 25%;
+		}
+
+		// .slide__btn
+		&__btn {
+			margin: 20px 0 0 0;
+			line-height: 1;
+			padding: 10px;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	//------отступ от кнопки "вернуться назад"
+	.section__description {
+		margin-bottom: 25px;
+	}
+
+	//------кнопка "попказать еще"
+	.page-more {
+		// .page-more__btn
+		&__btn {
+			width: 100%;
+			align-self: center;
+		}
+	}
+
+	//------услуги на главной странице
+	.services {
+		// .services__link
+		&__link {
+		}
+
+		// .services__items
+		&__items {
+			// grid-template-columns: 1fr;
+			grid-row-gap: 55px;
+			grid-column-gap: 15px;
+		}
+
+		// .services__item-link
+		&__item-link {
+		}
+
+		// .services__item
+		&__item {
+			height: 90px;
+		}
+
+		// .services__item-img
+		&__item-img {
+			padding-bottom: 10px;
+		}
+
+		// .services__items img
+		&__items img {
+			height: 100%;
+		}
+
+		// .services__item-text
+		&__item-text {
+			font-size: 16px;
+		}
+	}
+
+	//------врачи на главной странице
+	.doctors {
+		// .doctors__item
+		&__item {
+			display: flex !important;
+			justify-content: center;
+		}
+
+		// .doctors__btn
+		&__btn {
+			opacity: 1;
+		}
+	}
+
+	//------отзывы
+	.reviews {
+		&__items {
+			flex-direction: column;
+			margin-top: 50px;
+		}
+		&__item {
+			margin: 0 auto 70px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	//------страница услуг
+	.page-services {
+		&__container {
+			justify-content: start;
+		}
+		&__link-container {
+			padding: 0 30px;
+			margin: 0 -30px;
+		}
+
+		// .page-services__items
+		&__items {
+			margin-top: 30px;
+		}
+
+		&__inner {
+			padding: 0 30px;
+			margin: 0 -30px;
+			margin-top: 25px;
+			flex-wrap: nowrap;
+			overflow: scroll;
+			justify-content: flex-start;
+		}
+		&__link {
+			height: 40px;
+			margin: 15px;
+		}
+	}
+	.category {
+		// .category__title
+		// .category__title-child
+		&__title,
+		&__title-child {
+			// .category__title span
+			// .category__title-child span
+			& span {
+				display: none;
+			}
+		}
+	}
+
+	//------список акций
+	.page-sales {
+		// .page-sales__item-link
+		&__item-link {
+			@media (hover: hover) {
+				// .page-sales__item-link:hover
+				&:hover {
+					box-shadow: none;
+					transform: none;
+				}
+			}
+		}
+
+		// .page-sales__item
+		&__item {
+			flex-direction: column;
+
+			// .page-sales__item img
+			& img {
+				width: 100%;
+			}
+		}
+
+		// .page-sales__item-text-box
+		&__item-text-box {
+			padding: 20px 0;
+		}
+	}
+
+	//------страница врача
+	.page-doctor {
+		// .page-doctor__items
+		&__items {
+			flex-wrap: wrap;
+		}
+
+		// .page-doctor__item-img
+		&__item-img {
+			width: 100%;
+			max-width: 100%;
+			margin: 0 auto 25px auto;
+		}
+
+		// .page-doctor__item-record
+		&__item-record {
+			width: 100%;
+		}
+	}
+
+	.page-blog-note {
+		// .page-blog-note__items
+		&__items {
+			padding: 20px;
+
+			// .page-blog-note__items.slide-cover
+			&.slide-cover {
+				padding: 20px;
+			}
+		}
+
+		// .page-blog-note__item-cover
+		&__item-cover {
+			width: calc(100% + 40px);
+			margin: -20px -20px 15px -20px;
+		}
+
+		// .page-blog-note__item-title.absolute
+		&__item-title.absolute {
+			bottom: 20px;
+			left: 20px;
+		}
+	}
+	.wp-block-cover,
+	.wp-block-image,
+	.wp-block-themeisle-blocks-slider {
+		margin: 0 -20px;
+	}
+
+	//------футер
+	.footer {
+		// .footer__contacts
+		&__contacts {
+			grid-template-columns: 1fr;
+		}
+
+		// .footer__map
+		&__map {
+			height: 200px;
+		}
+
+		// .footer__menu
+		&__menu {
+			grid-template-columns: 1fr;
+			margin: 30px 0 50px 0;
+			grid-column-gap: 10px;
+			grid-row-gap: 10px;
+		}
+	}
+}

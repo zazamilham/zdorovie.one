@@ -1,122 +1,128 @@
-const { src, dest, watch, parallel, series } = require('gulp');
-const browserSync = require('browser-sync').create();
-const scss = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify-es').default;
-const imagemin = require('gulp-imagemin');
-const del = require('del');
-const ftp = require('vinyl-ftp');
-const gutil = require('gulp-util');
+// подключаем модули
+const { src, dest, watch, parallel, series } = require("gulp");
+const browserSync = require("browser-sync").create();
+const scss = require("gulp-sass")(require("sass"));
+const autoprefixer = require("gulp-autoprefixer");
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify-es").default;
+const del = require("del");
+const ftp = require("vinyl-ftp");
+const gutil = require("gulp-util");
+const changed = require("gulp-changed");
 
-function styles() {
+// обработка стилей
+function styles_vendor() {
   return src([
-    'node_modules/normalize.css/normalize.css',
-    'node_modules/fullpage.js/dist/fullpage.css',
-    'node_modules/@fortawesome/fontawesome-free/css/all.css',
-    'node_modules/animate.css/animate.min.css',
-    'node_modules/slick-carousel/slick/slick.css',
-    'node_modules/sweetalert2/dist/sweetalert2.css',
-    'app/scss/**/*.scss'
+    "node_modules/normalize.css/normalize.css",
+    // 'node_modules/fullpage.js/dist/fullpage.css',
+    "node_modules/@fortawesome/fontawesome-free/css/all.css",
+    "node_modules/animate.css/animate.min.css",
+    "node_modules/slick-carousel/slick/slick.css",
+    "node_modules/sweetalert2/dist/sweetalert2.css",
+    "app/assets/src/vendor/**/*.scss",
+    "app/assets/src/vendor/**/*.css",
   ])
-    .pipe(scss({ outputStyle: 'extanded' }))
-    .pipe(concat('style.min.css'))
-    .pipe(autoprefixer({
-      overrideBrowserlist: ['last 10 version'],
-      grid: true
-    }))
-    .pipe(dest('assets/css'))
-  // .pipe(dest('./preFtp/assets/css'))
-  // .pipe(browserSync.stream())
+    .pipe(changed("app/assets/vendor/css"))
+    .pipe(
+      autoprefixer({
+        overrideBrowserlist: ["last 10 version"],
+        grid: true,
+      })
+    )
+    .pipe(dest("app/assets/vendor/css"));
 }
 
-function scripts() {
+// обработка стилей
+function styles_theme() {
+  return (
+    src(["app/assets/src/scss/**/*.scss"])
+      .pipe(changed("app/assets/theme/css"))
+      .pipe(scss({ outputStyle: "expanded" }).on("error", scss.logError))
+      // .pipe(concat('style.css'))
+      .pipe(
+        autoprefixer({
+          overrideBrowserlist: ["last 10 version"],
+          grid: true,
+        })
+      )
+      .pipe(dest("app/assets/theme/css"))
+  );
+}
+
+// обработка скриптов
+function scripts_vendor() {
   return src([
     // 'node_modules/jquery/dist/jquery.js',
-    'node_modules/fullpage.js/vendors/scrolloverflow.js',
-    'node_modules/fullpage.js/dist/fullpage.js',
-    'node_modules/slick-carousel/slick/slick.js',
-    'node_modules/sweetalert2/dist/sweetalert2.all.js',
-    'app/js/main.js'
+    // 'node_modules/fullpage.js/vendors/scrolloverflow.js',
+    // 'node_modules/fullpage.js/dist/fullpage.js',
+    "node_modules/slick-carousel/slick/slick.js",
+    "node_modules/sweetalert2/dist/sweetalert2.all.js",
+    "app/assets/src/vendor/**/*.js",
   ])
-    .pipe(concat('main.min.js'))
-    // .pipe(uglify())
-    .pipe(dest('assets/js'))
-  // .pipe(dest('./preFtp/assets/js'))
-  // .pipe(browserSync.stream())
+    .pipe(changed("app/assets/vendor/js"))
+    .pipe(dest("app/assets/vendor/js"));
 }
 
-
-
-function browsersync() {
-  browserSync.init({
-    server: {
-      baseDir: 'app/'
-    }
-  });
+// обработка скриптов
+function scripts_theme() {
+  return (
+    src(["app/assets/src/js/**/*.js"])
+      .pipe(changed("app/assets/theme/js"))
+      .pipe(concat("main.js"))
+      // .pipe(uglify())
+      .pipe(dest("app/assets/theme/js"))
+  );
 }
 
-function images() {
-  return src('app/img/**/*')
-    .pipe(imagemin([
-      imagemin.gifsicle({ interlaced: true }),
-      imagemin.mozjpeg({ quality: 75, progressive: true }),
-      imagemin.optipng({ optimizationLevel: 5 }),
-      imagemin.svgo({
-        plugins: [
-          { removeViewBox: true },
-          { cleanupIDs: false }
-        ]
-      })
-    ]))
-    .pipe(dest('assets/img'))
-  // .pipe(dest('./preFtp/assets/img'))
-  // .pipe(deploy())
-}
+// обновление страницы
+// function browsersync() {
+//   browserSync.init({
+//     server: {
+//       baseDir: 'app/'
+//     }
+//   });
+// }
 
+// выгрузка на сервер
 function deploy() {
   var conn = ftp.create({
-    host: 'ftp.h009421100.nichost.ru',
-    user: 'h009421100_ftp',
-    password: '9lQ6u1DPEm',
+    host: "albert7g.beget.tech",
+    user: "albert7g_full",
+    password: "PI1%1&u4z@r50GFXq*&",
     parallel: 10,
-    log: gutil.log
+    log: gutil.log,
   });
 
-  var globs = [
-    './preFtp/**/*.*',
-  ];
-  return src(globs, { base: './preFtp', buffer: false })
-    .pipe(conn.newer('/zdorovie.one/docs/wp-content/themes/zdravmat2/'))
-    .pipe(conn.dest('/zdorovie.one/docs/wp-content/themes/zdravmat2/'))
+  var globs = ["./app/**/*.*"];
+  return src(globs, { base: "./app", buffer: false })
+    .pipe(conn.newer("/zdorovie.one/public_html/wp-content/themes/zdravmat2"))
+    .pipe(conn.dest("/zdorovie.one/public_html/wp-content/themes/zdravmat2"));
 }
 
-function cleanPreFtp() {
-  console.log('MY_LOG: cleanPreFtp is running')
-  return del('./preFtp/**/*.*');
-}
-
+// слежение за изменениями
+// function watching() {
+//   watch(['app/assets/src/scss/**/*.scss'], series(styles_vendor, styles_theme, deploy));
+//   watch(['app/assets/src/js/**/*.js'], series(scripts_vendor, scripts_theme, deploy));
+//   watch(['app/**/*.*', '!app/**/*.js', '!app/**/*.scss'], series(deploy));
+// }
 function watching() {
-  // watch(['./*.html', './*.php']).on('change', function (path, stats) {
-  //   console.log('Changes detected in file "' + path + '", ' + stats);
-  //   return src(path)
-  //   // .pipe(dest('./preFtp'))
-
-  // });
-  watch(['app/scss/**/*.scss'], series(styles));
-  watch(['app/js/**/*.js', '!app/js/main.min.js'], series(scripts));
-
-  // watch(['./preFtp/**/*.*'], series(deploy, cleanPreFtp));
+  watch(["app/assets/src/scss/**/*.scss"], series(styles_vendor, styles_theme));
+  watch(["app/assets/src/js/**/*.js"], series(scripts_vendor, scripts_theme));
+  watch(["app/**/*.*", "!app/**/*.js", "!app/**/*.scss"]);
 }
 
-
-exports.styles = series(styles, deploy);
-exports.scripts = series(scripts, deploy);
-exports.images = series(images, deploy);
-exports.deploy = deploy;
-exports.cleanPreFtp = cleanPreFtp;
-
-// exports.build = series(cleanDist, build, images);
-// exports.default = parallel(browsersync, watching, styles, scripts);
-exports.default = parallel(watching, styles, scripts);
-// exports.default = watching;
+// список функций для терминала
+exports.default = parallel(
+  styles_vendor,
+  styles_theme,
+  scripts_vendor,
+  scripts_theme,
+  watching
+);
+exports.build = parallel(
+  styles_vendor,
+  styles_theme,
+  scripts_vendor,
+  scripts_theme
+);
+exports.deploy = series(deploy);

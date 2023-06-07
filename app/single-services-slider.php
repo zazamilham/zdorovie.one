@@ -9,50 +9,94 @@ get_header();  ?>
 
 <section class="section page-blog-note__slide-cover" style="object-position: <? the_field('cover_position') ?>%">
 
-  <? if (has_post_thumbnail()) { ?>
-  <? the_post_thumbnail('blog-page_cover_slide', array('class' => "page-blog-note__slide-cover-img")); ?>
-  <? } ?>
+    <? if (has_post_thumbnail()) { ?>
+    <? the_post_thumbnail('blog-page_cover_slide', array('class' => "page-blog-note__slide-cover-img")); ?>
+    <? } ?>
 
-  <div class="wrap wrap--blog">
-    <div class="section__container">
-      <div class="section__description">
-        <div class="section__title page-blog-note__title" style="color: <? the_field('title_color') ?>">
-          наши услуги
-        </div>
-        <a href="<?php echo get_home_url(); ?>/services" class="link section__link <? 
+    <div class="wrap wrap--blog">
+        <div class="section__container">
+            <div class="section__description">
+                <div class="section__title page-blog-note__title" style="color: <? the_field('title_color') ?>">
+                    наши услуги
+                </div>
+                <a href="<?php echo get_home_url(); ?>/services" class="link section__link <? 
           if (get_field('title_color') === '#08bfcc') {
             echo 'section__link--blue';
           } else if (get_field('title_color') === '#ffffff') { echo 'section__link--white';} ?>">
-          <i class=" fas fa-angle-left"></i>
-          вернуться в раздел
-        </a>
-        <h1 class="section__title page-blog-note__item-title" style="color: <? the_field('title_color') ?>">
-          <?php echo $post->post_title; ?>
-        </h1>
-      </div>
+                    <i class=" fas fa-angle-left"></i>
+                    вернуться в раздел
+                </a>
+                <h1 class="section__title page-blog-note__item-title" style="color: <? the_field('title_color') ?>">
+                    <?php echo $post->post_title; ?>
+                </h1>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 
 <section class="section page-blog-note__section">
-  <div class="wrap wrap--slide-cover">
-    <div class="section__container page-blog-note__container">
-      <div class="section__items page-blog-note__items slide-cover">
-        <div class="page-blog-note__item">
-          <div class="page-blog-note__item-content">
-            <?php the_content(); ?>
-          </div>
+    <div class="wrap wrap--slide-cover">
+        <div class="section__container page-blog-note__container">
+            <div class="section__items page-blog-note__items slide-cover">
+                <div class="page-blog-note__item">
+                    <div class="page-blog-note__item-content">
+                        <?php the_content(); ?>
+                    </div>
+                    <?
+                      if (get_field('bind_doctors')) {
+                    ?>
+                    <div class="page-blog-note__item-doctors-list">
+                        <h2>Прием ведут</h2>
+                        <div class="section__items page-doctors__items">
+                            <?php
+                          foreach (get_field('bind_doctors') as $page) {
+                          ?>
+                            <div class="page-doctors__item">
+                                <a class="link page-doctors__item-link" href="<?php the_permalink($page->ID); ?>">
+                                    <? 
+                          if ( has_post_thumbnail($page->ID) ) {
+                            echo get_the_post_thumbnail($page->ID, 'doctor-page_cover', array('class' => "page-doctors__img"));
+                          }
+                          else {
+                            echo '<img class="page-doctors__img" src="' . wp_get_attachment_image_url( 1704, 'doctor-list_cover' ). '"/>';
+                          }
+                        ?>
+                                    <div class="page-doctors__disc">
+                                        <p class="page-doctors__name"><?php echo $page->post_title; ?></p>
+                                        <p class="page-doctors__spec"><?php the_field('doctors_spec', $page->ID); ?></p>
+                                    </div>
+                                </a>
+                                <div class="page-doctors__btn">записаться на приём</div>
+                                <div class="page-doctors__select-box">
+                                    <div class="page-doctors__select-title">
+                                        Выберите отделение клиники
+                                    </div>
+                                    <? 
+                                    foreach (get_field('doctors_clinics', $page->ID) as $clinic) {
+                                    if ($clinic == 1) {?>
+                                    <div class="link section__link page-doctor__item-btn page-doctor__item-btn--m-auto"
+                                        data-id="<?php the_field('doctors_id', $page->ID); ?>" data-clinic="1">ул.
+                                        Выборная</div>
+                                    <?}?>
+                                    <? if ($clinic == 2) {?>
+                                    <div class="link section__link page-doctor__item-btn page-doctor__item-btn--m-auto"
+                                        data-id="<?php the_field('doctors_id', $page->ID); ?>" data-clinic="2">ул.
+                                        Ключ-Камышенское
+                                    </div>
+                                    <?}}?>
+                                </div>
+                            </div>
+                            <? }} ?>
 
-          <?
+                            <?
           if (get_field('bind_services')) {
           ?>
-          <div>
-            <h2>Услуги по теме</h2>
-            <a href="<?php echo get_home_url(); ?>/services" class="link section__link section__link--blue"
-              style="margin-top: 0; margin-bottom: 30px"><i class="fas fa-angle-right"></i>весь список услуг</a>
+                            <div>
+                                <h2>Услуги по теме</h2>
 
-            <?
+
+                                <?
           // получаем страницы из базы WP
           function find_first_categories($ID)
           {
@@ -247,25 +291,33 @@ get_header();  ?>
             print_posts($ID);
           }
           ?>
-          </div>
-          <?
+                                <a href="<?php echo get_home_url(); ?>/services"
+                                    class="link section__link section__link--blue"
+                                    style="margin-top: 0; margin-bottom: 30px"><i class="fas fa-angle-right"></i>весь
+                                    список
+                                    услуг</a>
+                            </div>
+                            <?
           }
           ?>
 
-          <div class="page-blog-note__item-tags">
-            <?php the_tags('Теги: ');
+                            <div class="page-blog-note__item-tags">
+                                <?php the_tags('Теги: ');
             wp_reset_postdata(); ?>
-          </div>
-          <div class="page-blog-note__item-share ya-share2"
-            data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,viber,whatsapp,skype,telegram"
-            data-limit="3">
-          </div>
-        </div>
-      </div>
-      <div class="page-blog-note__hints-container" id="page-blog-note__hints-container">
-        <div class="page-blog-note__hints-inner" id="page-blog-note__hints-inner">
+                            </div>
+                            <div class="page-blog-note__item-share ya-share2"
+                                data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,viber,whatsapp,skype,telegram"
+                                data-limit="3">
+                            </div>
+                        </div>
+                    </div>
 
-          <?php
+                </div>
+            </div>
+            <div class="page-blog-note__hints-container" id="page-blog-note__hints-container">
+                <div class="page-blog-note__hints-inner" id="page-blog-note__hints-inner">
+
+                    <?php
           if (get_field('hints-check-1')) {
             echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-1">
                           <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
@@ -295,10 +347,10 @@ get_header();  ?>
           }
           ?>
 
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 

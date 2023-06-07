@@ -2,45 +2,48 @@
 <!-- страница услуг -->
 
 <section class="section page-services__section">
-  <div class="wrap wrap--margin">
-    <div class="section__container page-services__container">
-      <div class="section__description">
-        <div class="section__title page-services__title">Наши услуги</div>
-        <div class="page-services__link-container">
-          <div class="page-services__inner">
-            <a class="link page-services__link page-services__link--analyzes" href="#analyzes"><img
-                class="page-services__link-img"
-                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__microscope.svg"> Анализы</a>
-            <a class="link page-services__link page-services__link--diagnostics" href="#diagnostics"><img
-                class="page-services__link-img"
-                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__diagnostics.svg">
-              Диагностика</a>
-            <a class="link page-services__link page-services__link--adults" href="#adults"><img
-                class="page-services__link-img"
-                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__pregnancy.svg"> Взрослые</a>
-            <a class="link page-services__link page-services__link--kids" href="#kids"><img
-                class="page-services__link-img"
-                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__baby-boy.svg"> Дети</a>
-            <!-- <a class="link page-services__link page-services__link--health" href="#reproductive-health"><img
+    <div class="wrap wrap--margin">
+        <div class="section__container page-services__container">
+            <div class="section__description">
+                <div class="section__title page-services__title">Наши услуги</div>
+                <div class="page-services__link-container">
+                    <div class="page-services__inner">
+                        <a class="link page-services__link page-services__link--analyzes" href="#analyzes"><img
+                                class="page-services__link-img"
+                                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__microscope.svg">
+                            Анализы</a>
+                        <a class="link page-services__link page-services__link--diagnostics" href="#diagnostics"><img
+                                class="page-services__link-img"
+                                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__diagnostics.svg">
+                            Диагностика</a>
+                        <a class="link page-services__link page-services__link--adults" href="#adults"><img
+                                class="page-services__link-img"
+                                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__pregnancy.svg">
+                            Взрослые</a>
+                        <a class="link page-services__link page-services__link--kids" href="#kids"><img
+                                class="page-services__link-img"
+                                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__baby-boy.svg">
+                            Дети</a>
+                        <!-- <a class="link page-services__link page-services__link--health" href="#reproductive-health"><img
                 class="page-services__link-img"
                 src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__pregnancy.svg">
               Репродуктивное<br>здоровье</a> -->
-            <a class="link page-services__link page-services__link--sales" href="#sales"><img
-                class="page-services__link-img"
-                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__sales.svg">
-              Акции</a>
-          </div>
-        </div>
-      </div>
-      <div class="section__search">
-        <form class="section__search-form">
-          <input class="section__search-input" id="services_search" type="search" name="q"
-            placeholder="Поиск по услугам" spellcheck="true" autocomplete="off">
-        </form>
-      </div>
-      <div class="section__items page-services__items">
+                        <a class="link page-services__link page-services__link--sales" href="#sales"><img
+                                class="page-services__link-img"
+                                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__sales.svg">
+                            Акции</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section__search">
+                <form class="section__search-form">
+                    <input class="section__search-input" id="services_search" type="search" name="q"
+                        placeholder="Поиск по услугам" spellcheck="true" autocomplete="off">
+                </form>
+            </div>
+            <div class="section__items page-services__items">
 
-        <?
+                <?
         // получаем страницы из базы WP
         function find_categories($parent_id, $meta_value)
         {
@@ -214,48 +217,48 @@
 
 
 
-        <!-- АНАЛИЗЫ -->
-        <div class="page-services__item" id="page-services__item--analyzes">
-          <div class="page-services__item-title">
-            Анализы
-          </div>
-          <div class="page-services__item-box">
-            <? print_posts('analyzes'); ?>
-          </div>
-        </div>
+                <!-- АНАЛИЗЫ -->
+                <div class="page-services__item" id="page-services__item--analyzes">
+                    <div class="page-services__item-title">
+                        Анализы
+                    </div>
+                    <div class="page-services__item-box">
+                        <? print_posts('analyzes'); ?>
+                    </div>
+                </div>
 
-        <!-- ДИАГНОСТИКА -->
-        <div class="page-services__item" id="page-services__item--diagnostics">
-          <div class="page-services__item-title">
-            Диагностика
-          </div>
-          <div class="page-services__item-box">
-            <? print_posts('diagnostics'); ?>
-          </div>
-        </div>
+                <!-- ДИАГНОСТИКА -->
+                <div class="page-services__item" id="page-services__item--diagnostics">
+                    <div class="page-services__item-title">
+                        Диагностика
+                    </div>
+                    <div class="page-services__item-box">
+                        <? print_posts('diagnostics'); ?>
+                    </div>
+                </div>
 
-        <!-- ВЗРОСЛЫЕ -->
-        <div class="page-services__item" id="page-services__item--adults">
-          <div class="page-services__item-title">
-            Взрослые
-          </div>
-          <div class="page-services__item-box">
-            <? print_posts('adults'); ?>
-          </div>
-        </div>
+                <!-- ВЗРОСЛЫЕ -->
+                <div class="page-services__item" id="page-services__item--adults">
+                    <div class="page-services__item-title">
+                        Взрослые
+                    </div>
+                    <div class="page-services__item-box">
+                        <? print_posts('adults'); ?>
+                    </div>
+                </div>
 
-        <!-- ДЕТИ -->
-        <div class="page-services__item" id="page-services__item--kids">
-          <div class="page-services__item-title">
-            Дети
-          </div>
-          <div class="page-services__item-box">
-            <? print_posts('kids'); ?>
-          </div>
-        </div>
+                <!-- ДЕТИ -->
+                <div class="page-services__item" id="page-services__item--kids">
+                    <div class="page-services__item-title">
+                        Дети
+                    </div>
+                    <div class="page-services__item-box">
+                        <? print_posts('kids'); ?>
+                    </div>
+                </div>
 
-        <!-- РЕПРОДУКТИВНОЕ ЗДОРОВЬЕ -->
-        <!-- <div class="page-services__item" id="page-services__item--health">
+                <!-- РЕПРОДУКТИВНОЕ ЗДОРОВЬЕ -->
+                <!-- <div class="page-services__item" id="page-services__item--health">
           <div class="page-services__item-title">
             Репродуктивное здоровье
           </div>
@@ -264,14 +267,14 @@
           </div>
         </div> -->
 
-        <!-- АКЦИИ -->
-        <div class="page-services__item" id="page-services__item--sales">
-          <div class="page-services__item-title">
-            Акции
-          </div>
-          <div class="page-services__item-box">
-            <div class="section__items page-blog__items">
-              <?php
+                <!-- АКЦИИ -->
+                <div class="page-services__item" id="page-services__item--sales">
+                    <div class="page-services__item-title">
+                        Акции
+                    </div>
+                    <div class="page-services__item-box">
+                        <div class="section__items page-blog__items">
+                            <?php
                 $WP_posts = get_posts([
                   'posts_per_page' => -1,
                   'post_type' => 'post',
@@ -285,13 +288,14 @@
               if ($WP_posts) {
                 foreach ($WP_posts as $post) {
               ?>
-              <a class="link page-blog__item-link" href="<?php the_permalink(); ?>">
-                <div class="page-blog__item">
-                  <img class="page-blog__item-img"
-                    src="<?php the_post_thumbnail_url('blog-page_cover_list', array()); ?>" alt="">
-                  <div class="page-blog__item-box" style="color: <? the_field('title_color') ?>">
-                    <div class="page-blog__item-date"><?php the_field('sale_start') ?> -
-                      <?php 
+                            <a class="link page-blog__item-link" href="<?php the_permalink(); ?>">
+                                <div
+                                    class="page-blog__item <?php if (get_field('sale_end', false, false) >= date("Ymd")) echo 'active'?>">
+                                    <img class="page-blog__item-img"
+                                        src="<?php the_post_thumbnail_url('blog-page_cover_list', array()); ?>" alt="">
+                                    <div class="page-blog__item-box" style="color: <? the_field('title_color') ?>">
+                                        <div class="page-blog__item-date"><?php the_field('sale_start') ?> -
+                                            <?php 
                       the_field('sale_end');
                       if (get_field('sale_end', false, false) < date("Ymd")) {
                         echo '<div class="sale-marker red">АКЦИЯ ЗАКОНЧИЛАСЬ</div>';
@@ -299,32 +303,32 @@
                         echo '<div class="sale-marker green">АКЦИЯ ДЕЙСТВУЕТ</div>';
                       }
                       ?>
-                    </div>
-                    <div class="page-blog__item-title"><?php echo $post->post_title; ?></div>
-                    <div class="page-blog__item-text"><?php the_excerpt(); ?></div>
-                  </div>
-                </div>
-              </a>
-              <?}}
+                                        </div>
+                                        <div class="page-blog__item-title"><?php echo $post->post_title; ?></div>
+                                        <div class="page-blog__item-text"><?php the_excerpt(); ?></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <?}}
                 else {echo '</div>';}?>
-            </div>
-          </div>
-        </div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- ПОИСК -->
-        <div class="page-services__item" id="page-services__item--search">
-          <div class="page-services__item-title">
-            Результаты поиска:
-          </div>
-          <div class="page-services__item-box">
-            <div class="page-services__category">
+                <!-- ПОИСК -->
+                <div class="page-services__item" id="page-services__item--search">
+                    <div class="page-services__item-title">
+                        Результаты поиска:
+                    </div>
+                    <div class="page-services__item-box">
+                        <div class="page-services__category">
 
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 

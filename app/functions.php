@@ -20,7 +20,7 @@ add_action(
 		wp_enqueue_style('slick-style', get_stylesheet_directory_uri() . '/assets/vendor/css/slick.css', array(), null);
 		wp_enqueue_style('sweetalert2-style', get_stylesheet_directory_uri() . '/assets/vendor/css/sweetalert2.css', array(), null);
 		// wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), time());
-		wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), '2.1');
+		wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), '2.4');
 		wp_enqueue_style('wp-style', get_stylesheet_uri());
 	}
 );
@@ -40,7 +40,7 @@ add_action(
 		wp_enqueue_script('slick-script', get_template_directory_uri() . '/assets/vendor/js/slick.js', array('jquery'), null, true);
 		wp_enqueue_script('sweetalert2-script', get_template_directory_uri() . '/assets/vendor/js/sweetalert2.all.js', array('jquery'), null, true);
 		// wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), time(), true);
-		wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), '2.1', true);
+		wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), '2.4', true);
 	}
 );
 
@@ -101,7 +101,7 @@ add_action(
 			get_stylesheet_directory_uri() . "/assets/theme/css/editor.css",
 			array(),
 			// time()
-			'2.1'
+			'2.4'
 		);
 	}
 );
@@ -469,19 +469,19 @@ add_action(
 ?>
 <style>
 .column-cat {
-  width: 160px;
+    width: 160px;
 }
 
 .column-type {
-  width: 80px;
+    width: 80px;
 }
 
 .column-price {
-  width: 80px;
+    width: 80px;
 }
 
 .column-active {
-  width: 80px;
+    width: 80px;
 }
 </style>
 <?php
@@ -710,16 +710,16 @@ function true_option_page()
 {
 	global $true_page;
 ?><div class="wrap">
-  <h2>Настройка контента сайта</h2>
-  <form method="post" enctype="multipart/form-data" action="options.php">
-    <?php
+    <h2>Настройка контента сайта</h2>
+    <form method="post" enctype="multipart/form-data" action="options.php">
+        <?php
 			settings_fields('true_options'); // меняем под себя только здесь (название настроек)
 			do_settings_sections($true_page);
 			?>
-    <p class="submit">
-      <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
-    </p>
-  </form>
+        <p class="submit">
+            <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+        </p>
+    </form>
 </div>
 <?php
 }

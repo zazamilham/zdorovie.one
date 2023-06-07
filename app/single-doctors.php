@@ -9,23 +9,30 @@ Template Post Type: page
 <div data-menuanchor="p1" class="bg bg2"></div>
 
 <div class="fullpage">
-  <section class="section page-doctor__section">
-    <div class="wrap wrap--margin">
-      <div class="section__container page-doctor__container">
-        <div class="section__description">
-          <div class="section__title page-doctor__title">
-            Наши специалисты
-          </div>
-          <a href="<?php echo get_home_url(); ?>/doctors" class="link section__link section__link--blue">
-            <i class="fas fa-angle-left"></i>
-            к списку врачей
-          </a>
-        </div>
-        <div class="section__items page-doctor__items">
-          <? the_post_thumbnail('doctor-page_cover', array('class' => "page-doctor__item-img")); ?>
-          <div class="page-doctor__item-textbox">
+    <section class="section page-doctor__section">
+        <div class="wrap wrap--margin">
+            <div class="section__container page-doctor__container">
+                <div class="section__description">
+                    <div class="section__title page-doctor__title">
+                        Наши специалисты
+                    </div>
+                    <a href="<?php echo get_home_url(); ?>/doctors" class="link section__link section__link--blue">
+                        <i class="fas fa-angle-left"></i>
+                        к списку врачей
+                    </a>
+                </div>
+                <div class="section__items page-doctor__items">
+                    <? 
+                        if ( has_post_thumbnail($page->ID) ) {
+                            the_post_thumbnail('doctor-page_cover', array('class' => "page-doctor__item-img"));
+                        }
+                        else {
+                            echo '<img class="doctor__item-img" src="' . wp_get_attachment_image_url( 1704, 'doctor-page_cover' ). '"/>';
+                        }
+                    ?>
+                    <div class="page-doctor__item-textbox">
 
-            <?php
+                        <?php
             $mark = get_field('doctors_mark');
             if ($mark) {
               echo '<div class="page-doctor__item-icons">';
@@ -51,49 +58,49 @@ Template Post Type: page
             }
             ?>
 
-            <div class="page-doctor__item-title">
-              <?php echo get_the_title(); ?>
-            </div>
-            <div class="page-doctor__item-record">
-              <div class="page-doctor__item-record-title">
-                Записаться на приём:
-              </div>
-              <?
+                        <div class="page-doctor__item-title">
+                            <?php echo get_the_title(); ?>
+                        </div>
+                        <div class="page-doctor__item-record">
+                            <div class="page-doctor__item-record-title">
+                                Записаться на приём:
+                            </div>
+                            <?
               foreach (get_field('doctors_clinics') as $clinic) {
                 if ($clinic == 1) {?>
-              <div class="link section__link page-doctor__item-btn" data-id="<?php the_field('doctors_id'); ?>"
-                data-clinic="1">ул. Выборная
-              </div>
-              <?}?>
-              <? if ($clinic == 2) {?>
-              <div class="link section__link page-doctor__item-btn" data-id="<?php the_field('doctors_id'); ?>"
-                data-clinic="2">ул. Ключ-Камышенское
-              </div>
-              <?}}?>
-            </div>
-            <div class="page-doctor__item-spec"><?php the_field('doctors_spec'); ?></div>
-            <div class="page-doctor__item-experience">стаж:
-              <?php echo $docs_exp = date('Y') - get_field('doctors_exp'); ?>
-              <?php
+                            <div class="link section__link page-doctor__item-btn"
+                                data-id="<?php the_field('doctors_id'); ?>" data-clinic="1">ул. Выборная
+                            </div>
+                            <?}?>
+                            <? if ($clinic == 2) {?>
+                            <div class="link section__link page-doctor__item-btn"
+                                data-id="<?php the_field('doctors_id'); ?>" data-clinic="2">ул. Ключ-Камышенское
+                            </div>
+                            <?}}?>
+                        </div>
+                        <div class="page-doctor__item-spec"><?php the_field('doctors_spec'); ?></div>
+                        <div class="page-doctor__item-experience">стаж:
+                            <?php echo $docs_exp = date('Y') - get_field('doctors_exp'); ?>
+                            <?php
               if (substr($docs_exp, -1) == '0') echo 'лет';
               elseif ($docs_exp >= '10' && $docs_exp <= '20') echo 'лет';
               elseif (substr($docs_exp, -1) == '1') echo 'год';
               elseif (substr($docs_exp, -1) <= '4') echo 'года';
               else echo 'лет'; ?>
-            </div>
-            <?php
+                        </div>
+                        <?php
             $mark = get_field('doctors_cat');
             if ($mark) {
             ?>
-            <div class="page-doctor__item-categories"><?php the_field('doctors_cat'); ?> категория</div>
-            <?php
+                        <div class="page-doctor__item-categories"><?php the_field('doctors_cat'); ?> категория</div>
+                        <?php
             }
             ?>
-            <div class="page-doctor__item-text"><?php echo the_content(); ?></div>
-          </div>
-          <div class="page-blog-note__hints-container" id="page-blog-note__hints-container">
-            <div class="page-blog-note__hints-inner" id="page-blog-note__hints-inner">
-              <?php
+                        <div class="page-doctor__item-text"><?php echo the_content(); ?></div>
+                    </div>
+                    <div class="page-blog-note__hints-container" id="page-blog-note__hints-container">
+                        <div class="page-blog-note__hints-inner" id="page-blog-note__hints-inner">
+                            <?php
               if (get_field('hints-check-1')) {
                 echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-1">
                             <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
@@ -122,12 +129,12 @@ Template Post Type: page
                 echo '</div>';
               }
               ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
 
-  <?php get_footer(); ?>
+    <?php get_footer(); ?>

@@ -68,6 +68,18 @@
       padding-top: 36.5%;
     }
 
+    // .page-blog__item.active
+    &.active {
+      &::after {
+        background-color: rgba(107, 166, 182, 0.1);
+      }
+      & .page-blog__item-date,
+      & .page-blog__item-title,
+      & .page-blog__item-text {
+        color: inherit;
+      }
+    }
+
     // .page-blog__item:hover::after
     @media (hover: hover) {
       &:hover::after {

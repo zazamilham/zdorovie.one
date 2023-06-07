@@ -4,31 +4,31 @@
 
 <!-- ИНДЕКС -->
 <div class="search__wrap">
-  <div class="search__close-inner">
-    <div class="search__close"></div>
-  </div>
-  <div class="search__inner">
+    <div class="search__close-inner">
+        <div class="search__close"></div>
+    </div>
+    <div class="search__inner">
 
-    <i class="fas fa-search"></i>
-    <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
-  </div>
+        <i class="fas fa-search"></i>
+        <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+    </div>
 </div>
 <section class="section">
-  <div class="wrap">
+    <div class="wrap">
 
-    <div class="section__container" style="word-wrap: break-word;">
+        <div class="section__container" style="word-wrap: break-word;">
 
-      <table>
-        <tbody>
-          <tr style="outline: solid; background: lightgray;">
-            <td>статус</td>
-            <td>название</td>
-            <td>тип</td>
-            <td>ID Medods</td>
-            <td>ID WP</td>
-            <td>Таксономия</td>
-          </tr>
-          <?
+            <table>
+                <tbody>
+                    <tr style="outline: solid; background: lightgray;">
+                        <td>статус</td>
+                        <td>название</td>
+                        <td>тип</td>
+                        <td>ID Medods</td>
+                        <td>ID WP</td>
+                        <td>Таксономия</td>
+                    </tr>
+                    <?
 
       // =======================================
       // ===============ВЫГРУЗКА================
@@ -120,147 +120,157 @@
       // END получаем врача из WP
 
       // создаем или обновляем запись в базе WP
+      function array_print_categories_inner ($res){
+            foreach ($res as $item) {
+
+              $find_item = find_WP_ID('services_id_cat', $item->id);
+              if ($find_item) {
+                $status = 'запись обновлена';
+                $ID = $find_item->ID;
+                $post_status = $find_item->post_status;
+                $post_content = $find_item->post_content;
+              }
+              else {
+                $status = 'запись добавлена';
+                $ID = '';
+                $post_status = 'draft';
+                $post_content = '';
+              }
+              $parentId = find_WP_ID('services_id_cat', $item->parentId)->ID;
+
+              // $services_doc_ID_arr =[];
+              // foreach ($item->userIds as $userID) {
+              //   $services_doc_ID = find_Docs_ID($userID)->ID;
+              //   array_push($services_doc_ID_arr, $services_doc_ID);
+              // }
+
+              // Создаем массив данных новой записи 
+              $post_data = array(
+                'ID'            => $ID,
+                'post_title'    => $item->title,
+                // 'post_name'     => $item->title,
+                'post_status'   => $post_status,
+                'post_type'     => 'services',
+                'post_author'   => 6,
+                'post_content' => $post_content,
+                'post_parent'   => $parentId,
+                'meta_input'   => array(
+                  'services_type' => 'category',
+                  'services_id_cat' => $item->id,
+                  'services_active' => 'on',
+                  // 'services_docs_id' => $services_doc_ID_arr
+                ),
+                // 'tax_input' => array( 'services_type' => 'category'),
+              );
+
+              // Вставляем запись в базу данных
+              $post_id = wp_insert_post(wp_slash($post_data), true);
+
+              if (is_wp_error($post_id)) {
+                echo $post_id->get_error_message() . ': ' . $item->id . '<br>';
+                // $ERROR_count = $ERROR_count + 1;
+              } else {
+                $tax_status = wp_set_object_terms( $post_id, 'category', 'services_type', false );
+                echo '<tr style="outline: solid;">';
+                echo '<td>' . $status . '</td>';
+                echo '<td>' . $item->title . '</td>';
+                echo '<td>' . 'категория' . '</td>';
+                echo '<td>' .  $item->id . '</td>';
+                echo '<td>' . $post_id . '</td>';
+                echo '<td>';
+                print_r($tax_status);
+                echo '</td>';
+                echo '</tr>';
+              }
+
+              if ($item->children) {
+                array_print_categories_inner($item->children);
+              }
+            }
+          }
       function array_print_categories($arr)
       {
-        foreach ($arr as $item) {
-
-          $find_item = find_WP_ID('services_id_cat', $item->id);
-          if ($find_item) {
-            $status = 'запись обновлена';
-            $ID = $find_item->ID;
-            $post_status = $find_item->post_status;
-            $post_content = $find_item->post_content;
-          }
-          else {
-            $status = 'запись добавлена';
-            $ID = '';
-            $post_status = 'draft';
-            $post_content = '';
-          }
-          $parentId = find_WP_ID('services_id_cat', $item->parentId)->ID;
-
-          // $services_doc_ID_arr =[];
-          // foreach ($item->userIds as $userID) {
-          //   $services_doc_ID = find_Docs_ID($userID)->ID;
-          //   array_push($services_doc_ID_arr, $services_doc_ID);
-          // }
-
-          // Создаем массив данных новой записи 
-          $post_data = array(
-            'ID'            => $ID,
-            'post_title'    => $item->title,
-            // 'post_name'     => $item->title,
-            'post_status'   => $post_status,
-            'post_type'     => 'services',
-            'post_author'   => 6,
-            'post_content' => $post_content,
-            'post_parent'   => $parentId,
-            'meta_input'   => array(
-              'services_type' => 'category',
-              'services_id_cat' => $item->id,
-              'services_active' => 'on',
-              // 'services_docs_id' => $services_doc_ID_arr
-            ),
-            // 'tax_input' => array( 'services_type' => 'category'),
-          );
-
-          // Вставляем запись в базу данных
-          $post_id = wp_insert_post(wp_slash($post_data), true);
-
-          if (is_wp_error($post_id)) {
-            echo $post_id->get_error_message() . ': ' . $item->id . '<br>';
-            // $ERROR_count = $ERROR_count + 1;
-          } else {
-            $tax_status = wp_set_object_terms( $post_id, 'category', 'services_type', false );
-            echo '<tr style="outline: solid;">';
-            echo '<td>' . $status . '</td>';
-            echo '<td>' . $item->title . '</td>';
-            echo '<td>' . 'категория' . '</td>';
-            echo '<td>' .  $item->id . '</td>';
-            echo '<td>' . $post_id . '</td>';
-            echo '<td>';
-            print_r($tax_status);
-            echo '</td>';
-            echo '</tr>';
-          }
-
-          if ($item->children) {
-            array_print_categories($item->children);
-          }
+        foreach ($arr as $res) {
+          array_print_categories_inner($res);
         }
       }
-      function array_print_services($arr)
-      {
-        foreach ($arr as $item) {
 
-          $find_item = find_WP_ID('services_id_serv', $item->id);
-          if ($find_item) {
-            $status = 'запись обновлена';
-            $ID = $find_item->ID;
-            $post_status = $find_item->post_status;
-            $post_content = $find_item->post_content;
+      function array_print_services_inner($res) {
+            foreach ($res as $item) {
+
+              $find_item = find_WP_ID('services_id_serv', $item->id);
+              if ($find_item) {
+                $status = 'запись обновлена';
+                $ID = $find_item->ID;
+                $post_status = $find_item->post_status;
+                $post_content = $find_item->post_content;
+              }
+              else {
+                $status = 'запись добавлена';
+                $ID = '';
+                $post_status = 'draft';
+                $post_content = '';
+              }
+              $categoryId = find_WP_ID('services_id_cat', $item->categoryId)->ID;
+              
+              // $services_doc_ID_arr =[];
+              // foreach ($item->userIds as $userID) {
+              //   $services_doc_ID = find_Docs_ID($userID)->ID;
+              //   array_push($services_doc_ID_arr, $services_doc_ID);
+              // }
+              // echo '<pre>';
+              // print_r($item->userIds);
+              // echo '</pre>';
+              // Создаем массив данных новой записи
+              $post_data = array(
+                'ID'            => $ID,
+                'post_title'    => $item->title,
+                // 'post_name'     => $item->title,
+                'post_status'   => $post_status,
+                'post_type'     => 'services',
+                'post_author'   => 6,
+                'post_content' => $post_content,
+                // 'post_category' => array('services'),
+                'post_parent'   => $categoryId,
+                'meta_input'   => array(
+                  'services_type' => 'service',
+                  'services_id_serv' => $item->id,
+                  'services_price' => $item->price,
+                  'services_active' => 'on',
+                  // 'services_docs_id' => $services_doc_ID_arr
+                ),
+                // 'tax_input' => array( 'services_type' => 'service'),
+              );
+
+              // Вставляем запись в базу данных
+              $post_id = wp_insert_post(wp_slash($post_data), true);
+
+              if (is_wp_error($post_id)) {
+                echo $post_id->get_error_message() . ': ' . $item->id . '<br>';
+                // $ERROR_count = $ERROR_count + 1;
+              } else {
+                $tax_status = wp_set_object_terms( $post_id, 'service', 'services_type', false );
+
+                echo '<tr style="outline: solid;">';
+                echo '<td>' . $status . '</td>';
+                echo '<td>' . $item->title . '</td>';
+                echo '<td>' . 'услуга' . '</td>';
+                echo '<td>' .  $item->id . '</td>';
+                echo '<td>' . $post_id . '</td>';
+                echo '<td>';
+                print_r($tax_status);
+                echo '</td>';
+                echo '</tr>';
+              }
+
+              if ($item->children) {
+                array_print_services_inner($item->children);
+              }
+            }
           }
-          else {
-            $status = 'запись добавлена';
-            $ID = '';
-            $post_status = 'draft';
-            $post_content = '';
-          }
-          $categoryId = find_WP_ID('services_id_cat', $item->categoryId)->ID;
-          
-          // $services_doc_ID_arr =[];
-          // foreach ($item->userIds as $userID) {
-          //   $services_doc_ID = find_Docs_ID($userID)->ID;
-          //   array_push($services_doc_ID_arr, $services_doc_ID);
-          // }
-          // echo '<pre>';
-          // print_r($item->userIds);
-          // echo '</pre>';
-          // Создаем массив данных новой записи
-          $post_data = array(
-            'ID'            => $ID,
-            'post_title'    => $item->title,
-            // 'post_name'     => $item->title,
-            'post_status'   => $post_status,
-            'post_type'     => 'services',
-            'post_author'   => 6,
-            'post_content' => $post_content,
-            // 'post_category' => array('services'),
-            'post_parent'   => $categoryId,
-            'meta_input'   => array(
-              'services_type' => 'service',
-              'services_id_serv' => $item->id,
-              'services_price' => $item->price,
-              'services_active' => 'on',
-              // 'services_docs_id' => $services_doc_ID_arr
-            ),
-            // 'tax_input' => array( 'services_type' => 'service'),
-          );
-
-          // Вставляем запись в базу данных
-          $post_id = wp_insert_post(wp_slash($post_data), true);
-
-          if (is_wp_error($post_id)) {
-            echo $post_id->get_error_message() . ': ' . $item->id . '<br>';
-            // $ERROR_count = $ERROR_count + 1;
-          } else {
-            $tax_status = wp_set_object_terms( $post_id, 'service', 'services_type', false );
-
-            echo '<tr style="outline: solid;">';
-            echo '<td>' . $status . '</td>';
-            echo '<td>' . $item->title . '</td>';
-            echo '<td>' . 'услуга' . '</td>';
-            echo '<td>' .  $item->id . '</td>';
-            echo '<td>' . $post_id . '</td>';
-            echo '<td>';
-            print_r($tax_status);
-            echo '</td>';
-            echo '</tr>';
-          }
-
-          if ($item->children) {
-            array_print_services($item->children);
-          }
+      function array_print_services($arr) {
+        foreach ($arr as $res) {
+          array_print_services_inner($res);
         }
       }
       // END создаем или обновляем запись в базе WP
@@ -268,6 +278,7 @@
 
 
       // получаем список категорий из Medods
+      $result_categories = [];
       $page = 0;
       while (true) {
         $header = ["alg" => "HS512", "typ" => "JWT"];
@@ -284,20 +295,21 @@
         ));
 
         if (wp_remote_retrieve_response_code($categories) === 200) {
-          // echo 'код 200<br>';
+          echo 'код 200<br>';
         }
         if (wp_remote_retrieve_response_code($categories) === 422) {
           echo 'Отсутствует обязательное поле или ошибка валидации<br>';
         }
         if (wp_remote_retrieve_response_code($categories) === 403) {
           echo 'Error: response status is 403<br>';
+          echo wp_remote_retrieve_response_message($categories).'<br>';
         }
 
         $categories_decode = json_decode(wp_remote_retrieve_body($categories, true))->data;  //декодируем ответ
         if ($categories_decode) {
 
           // создаем или обновляем запись в базе WP
-          array_print_categories($categories_decode);
+          $result_categories[] = $categories_decode;
 
           $page = $page + 100;
           sleep(1);
@@ -305,9 +317,11 @@
           break;
         }
       }
+      array_print_categories($result_categories);
       // END получаем список категорий из Medods
 
       // получаем список услуг из Medods
+      $result_services = [];
       $page = 0;
       while (true) {
         $header = ["alg" => "HS512", "typ" => "JWT"];
@@ -324,20 +338,21 @@
         ));
 
         if (wp_remote_retrieve_response_code($price) === 200) {
-          // echo 'код 200<br>';
+          echo 'код 200<br>';
         }
         if (wp_remote_retrieve_response_code($price) === 422) {
           echo 'Отсутствует обязательное поле или ошибка валидации<br>';
         }
         if (wp_remote_retrieve_response_code($price) === 403) {
           echo 'Error: response status is 403<br>';
+          echo wp_remote_retrieve_response_message($price).'<br>';
         }
 
         $price_decode = json_decode(wp_remote_retrieve_body($price, true))->data;  //декодируем ответ
         if ($price_decode) {
 
           // создаем или обновляем запись в базе WP
-          array_print_services($price_decode);
+          $result_services[] = $price_decode;
           // echo '<pre>';
           // print_r($price_decode);
           // echo '</pre>';
@@ -348,17 +363,18 @@
           break;
         }
       }
+      array_print_services($result_services);
       // END получаем список услуг из Medods
 
       // echo '<br>Успешно добавлено или обновлено: ' . $POST_count . '<br>';
       // echo '<br>Ошибок за цикл: ' . $ERROR_count . '<br>';
       ?>
 
-        </tbody>
-      </table>
+                </tbody>
+            </table>
 
+        </div>
     </div>
-  </div>
 </section>
 
 

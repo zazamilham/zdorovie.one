@@ -1909,7 +1909,7 @@ mark {
 }
 
 .cf7sr-g-recaptcha {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   margin-left: auto;
 }
 
@@ -2211,6 +2211,12 @@ mark {
   display: block;
   padding-top: 36.5%;
 }
+.page-blog__item.active::after {
+  background-color: rgba(107, 166, 182, 0.1);
+}
+.page-blog__item.active .page-blog__item-date, .page-blog__item.active .page-blog__item-title, .page-blog__item.active .page-blog__item-text {
+  color: inherit;
+}
 @media (hover: hover) {
   .page-blog__item:hover::after {
     background-color: rgba(107, 166, 182, 0.1);
@@ -2386,6 +2392,19 @@ mark {
   position: absolute;
   bottom: 50px;
   left: 50px;
+}
+.page-blog-note__item-doctors-list {
+  margin: 0 -50px;
+  padding-top: 20px;
+  background-image: linear-gradient(12deg, #aaffe6, rgba(107, 166, 182, 0.52), rgba(107, 166, 182, 0.39), rgba(107, 166, 182, 0.21));
+  background-attachment: fixed;
+}
+.page-blog-note__item-doctors-list h2 {
+  text-align: center;
+  color: #404040;
+}
+.page-blog-note__item-doctors-list .page-doctors__items {
+  margin-top: 0;
 }
 .page-blog-note__item-tags {
   color: #959595;

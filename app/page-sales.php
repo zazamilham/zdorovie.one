@@ -11,12 +11,12 @@
             <div class="section__items page-sales__items">
 
                 <?php
-        if (have_posts()) :
-          // Start the Loop.
-          query_posts("cat=4");
-          while (have_posts()) :
-            the_post();
-        ?>
+                    if (have_posts()) :
+                    // Start the Loop.
+                    query_posts("cat=4");
+                    while (have_posts()) :
+                        the_post();
+                ?>
                 <a class="link page-sales__item-link" href="<?php the_permalink(); ?>">
                     <div class="page-sales__item">
                         <?php the_post_thumbnail(); ?>
@@ -29,12 +29,12 @@
                     </div>
                 </a>
                 <?php
-          endwhile;
-          wp_reset_query();
-        else :
-          echo '</div>';
-        endif;
-        ?>
+                    endwhile;
+                    wp_reset_query();
+                    else :
+                    echo '</div>';
+                    endif;
+                ?>
             </div>
         </div>
     </div>

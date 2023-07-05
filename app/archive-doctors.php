@@ -27,28 +27,28 @@
             <div class="section__items page-doctors__items">
 
                 <?php
-          $doctors_page = get_posts([
-            'posts_per_page' => -1,
-            'post_type' => 'doctors',
-            'post_status' => 'publish',
-            'orderby' => 'title',
-            'order' => 'ASC',
-            'meta_query' => [
-              // 'relation' => 'AND',
-              [
-                'key' => 'doctors_active',
-                'value' => 'on',
-                'compare' => 'LIKE'
-              ]
-            ],
-          ]);
-        if ($doctors_page) {
-        
-        foreach ($doctors_page as $page) {
-          // $content = $page->post_content;
-          // if (!$content) continue;
-          // $content = apply_filters('the_content', $content);
-        ?>
+                    $doctors_page = get_posts([
+                        'posts_per_page' => -1,
+                        'post_type' => 'doctors',
+                        'post_status' => 'publish',
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                        'meta_query' => [
+                        // 'relation' => 'AND',
+                        [
+                            'key' => 'doctors_active',
+                            'value' => 'on',
+                            'compare' => 'LIKE'
+                        ]
+                        ],
+                    ]);
+                    if ($doctors_page) {
+                    
+                    foreach ($doctors_page as $page) {
+                    // $content = $page->post_content;
+                    // if (!$content) continue;
+                    // $content = apply_filters('the_content', $content);
+                    ?>
                 <div class="page-doctors__item">
                     <a class="link page-doctors__item-link" href="<?php the_permalink($page->ID); ?>">
                         <? 
@@ -70,8 +70,8 @@
                             Выберите отделение клиники
                         </div>
                         <? 
-            foreach (get_field('doctors_clinics', $page->ID) as $clinic) {
-            if ($clinic == 1) {?>
+                            foreach (get_field('doctors_clinics', $page->ID) as $clinic) {
+                            if ($clinic == 1) {?>
                         <div class="link section__link page-doctor__item-btn page-doctor__item-btn--m-auto"
                             data-id="<?php the_field('doctors_id', $page->ID); ?>" data-clinic="1">ул. Выборная</div>
                         <?}?>

@@ -24,10 +24,6 @@
                                 class="page-services__link-img"
                                 src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__baby-boy.svg">
                             Дети</a>
-                        <!-- <a class="link page-services__link page-services__link--health" href="#reproductive-health"><img
-                class="page-services__link-img"
-                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__pregnancy.svg">
-              Репродуктивное<br>здоровье</a> -->
                         <a class="link page-services__link page-services__link--sales" href="#sales"><img
                                 class="page-services__link-img"
                                 src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__sales.svg">
@@ -44,178 +40,175 @@
             <div class="section__items page-services__items">
 
                 <?
-        // получаем страницы из базы WP
-        function find_categories($parent_id, $meta_value)
-        {
-          $WP_posts = get_posts([
-            'posts_per_page' => -1,
-            'post_parent' => $parent_id,
-            'post_type' => 'services',
-            'post_status' => 'any',
-            'meta_query' => [
-              'relation' => 'AND',
-              [
-                'key' => 'services_cat',
-                'value' => $meta_value,
-                'compare' => 'LIKE'
-              ],
-              [
-                'key' => 'services_active',
-                'value' => 'on',
-                'compare' => 'LIKE'
-              ]
-            ],
-            'orderby' => 'parent',
-            'order' => 'ASC'
-          ]);
+                  // получаем страницы из базы WP
+                  function find_categories($parent_id, $meta_value)
+                  {
+                    $WP_posts = get_posts([
+                      'posts_per_page' => -1,
+                      'post_parent' => $parent_id,
+                      'post_type' => 'services',
+                      'post_status' => 'any',
+                      'meta_query' => [
+                        'relation' => 'AND',
+                        [
+                          'key' => 'services_cat',
+                          'value' => $meta_value,
+                          'compare' => 'LIKE'
+                        ],
+                        [
+                          'key' => 'services_active',
+                          'value' => 'on',
+                          'compare' => 'LIKE'
+                        ]
+                      ],
+                      'orderby' => 'parent',
+                      'order' => 'ASC'
+                    ]);
 
-          if ($WP_posts) {
-            return $WP_posts;
-          } else {
-            return null;
-          }
-          wp_reset_postdata();
-        }
-
-        function find_services($parent_id)
-        {
-          $WP_posts = get_posts([
-            'posts_per_page' => -1,
-            'post_parent' => $parent_id,
-            'post_type' => 'services',
-            'post_status' => 'any',
-            'meta_query' => [
-              'relation' => 'AND',
-              [
-                'key' => 'services_type',
-                'value' => 'service',
-                'compare' => 'LIKE'
-              ],
-              [
-                'key' => 'services_active',
-                'value' => 'on',
-                'compare' => 'LIKE'
-              ]
-            ],
-            'orderby' => 'title',
-            'order' => 'ASC'
-          ]);
-
-          if ($WP_posts) {
-            return $WP_posts;
-          } else {
-            return null;
-          }
-          wp_reset_postdata();
-        }
-        // END получаем посты из WP
-
-        // функция вывода постов
-        function print_posts($meta_value)
-        {
-          $categories = find_categories('', $meta_value);
-
-          if ($categories) {
-            $fix = [];
-            foreach ($categories as $post) {
-              if (!in_array($post->ID, $fix)) {
-                $PRINT_RESULT = '';
-
-                $categories_children = find_categories($post->ID, $meta_value);
-                $service = find_services($post->ID);
-
-                if ($categories_children || $service) {
-                  $PRINT_RESULT .= '<div class="page-services__category">';
-                  $PRINT_RESULT .= '<div class="category__description">';
-                  $PRINT_RESULT .= '<div class="category__title">';
-                  $PRINT_RESULT .= $post->post_title;
-                  $PRINT_RESULT .= '</div>'; //category__title
-                  if ($post->post_status == 'publish') {
-                    $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
+                    if ($WP_posts) {
+                      return $WP_posts;
+                    } else {
+                      return null;
+                    }
+                    wp_reset_postdata();
                   }
-                  $PRINT_RESULT .= '<div class="category__btn">';
-                  $PRINT_RESULT .= '<div class="category__btn-inner">';
-                  $PRINT_RESULT .= '<div class="category__btn-strip-1"></div>';
-                  $PRINT_RESULT .= '<div class="category__btn-strip-2"></div>';
-                  $PRINT_RESULT .= '</div>'; //category__btn-inner
-                  $PRINT_RESULT .= '</div>'; //category__btn
-                  $PRINT_RESULT .= '</div>'; //category__description
-                  $PRINT_RESULT .= '<div class="category__service-description-box">';
 
-                  if ($categories_children) {
-                    foreach ($categories_children as $post) {
-                      $service_children = find_services($post->ID);
-                      if ($service_children && !in_array($post->ID, $fix)) {
-                        array_push($fix, $post->ID);
-                        $PRINT_RESULT .= '<div class="page-services__category-child">';
-                        $PRINT_RESULT .= '<div class="category__description-child">';
-                        $PRINT_RESULT .= '<div class="category__title-child">';
-                        $PRINT_RESULT .= $post->post_title;
-                        $PRINT_RESULT .= '</div>'; //category__title-child
-                        if ($post->post_status == 'publish') {
-                          $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
-                        }
-                        $PRINT_RESULT .= '<div class="category__btn-child">';
-                        $PRINT_RESULT .= '<div class="category__btn-inner-child">';
-                        $PRINT_RESULT .= '<div class="category__btn-strip-1-child"></div>';
-                        $PRINT_RESULT .= '<div class="category__btn-strip-2-child"></div>';
-                        $PRINT_RESULT .= '</div>'; //category__btn-inner-child
-                        $PRINT_RESULT .= '</div>'; //category__btn-child
-                        $PRINT_RESULT .= '</div>'; //category__description-child
-                        $PRINT_RESULT .= '<div class="category__service-description-box-child">';
-                        foreach ($service_children as $post) {
-                          $PRINT_RESULT .= '<div class="category__service-description-child">';
-                          $PRINT_RESULT .= '<div class="category__service-title-child">';
-                          $PRINT_RESULT .= $post->post_title;
-                          $PRINT_RESULT .= '</div>'; //category__service-title-child
-                          if ($post->post_status == 'publish') {
-                            $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
+                  function find_services($parent_id)
+                  {
+                    $WP_posts = get_posts([
+                      'posts_per_page' => -1,
+                      'post_parent' => $parent_id,
+                      'post_type' => 'services',
+                      'post_status' => 'any',
+                      'meta_query' => [
+                        'relation' => 'AND',
+                        [
+                          'key' => 'services_type',
+                          'value' => 'service',
+                          'compare' => 'LIKE'
+                        ],
+                        [
+                          'key' => 'services_active',
+                          'value' => 'on',
+                          'compare' => 'LIKE'
+                        ]
+                      ],
+                      'orderby' => 'title',
+                      'order' => 'ASC'
+                    ]);
+
+                    if ($WP_posts) {
+                      return $WP_posts;
+                    } else {
+                      return null;
+                    }
+                    wp_reset_postdata();
+                  }
+                  // END получаем посты из WP
+
+                  // функция вывода постов
+                  function print_posts($meta_value)
+                  {
+                    $categories = find_categories('', $meta_value);
+
+                    if ($categories) {
+                      $fix = [];
+                      foreach ($categories as $post) {
+                        if (!in_array($post->ID, $fix)) {
+                          $PRINT_RESULT = '';
+
+                          $categories_children = find_categories($post->ID, $meta_value);
+                          $service = find_services($post->ID);
+
+                          if ($categories_children || $service) {
+                            $PRINT_RESULT .= '<div class="page-services__category">';
+                            $PRINT_RESULT .= '<div class="category__description">';
+                            $PRINT_RESULT .= '<div class="category__title">';
+                            $PRINT_RESULT .= $post->post_title;
+                            $PRINT_RESULT .= '</div>'; //category__title
+                            if ($post->post_status == 'publish') {
+                              $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
+                            }
+                            $PRINT_RESULT .= '<div class="category__btn">';
+                            $PRINT_RESULT .= '<div class="category__btn-inner">';
+                            $PRINT_RESULT .= '<div class="category__btn-strip-1"></div>';
+                            $PRINT_RESULT .= '<div class="category__btn-strip-2"></div>';
+                            $PRINT_RESULT .= '</div>'; //category__btn-inner
+                            $PRINT_RESULT .= '</div>'; //category__btn
+                            $PRINT_RESULT .= '</div>'; //category__description
+                            $PRINT_RESULT .= '<div class="category__service-description-box">';
+
+                            if ($categories_children) {
+                              foreach ($categories_children as $post) {
+                                $service_children = find_services($post->ID);
+                                if ($service_children && !in_array($post->ID, $fix)) {
+                                  array_push($fix, $post->ID);
+                                  $PRINT_RESULT .= '<div class="page-services__category-child">';
+                                  $PRINT_RESULT .= '<div class="category__description-child">';
+                                  $PRINT_RESULT .= '<div class="category__title-child">';
+                                  $PRINT_RESULT .= $post->post_title;
+                                  $PRINT_RESULT .= '</div>'; //category__title-child
+                                  if ($post->post_status == 'publish') {
+                                    $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
+                                  }
+                                  $PRINT_RESULT .= '<div class="category__btn-child">';
+                                  $PRINT_RESULT .= '<div class="category__btn-inner-child">';
+                                  $PRINT_RESULT .= '<div class="category__btn-strip-1-child"></div>';
+                                  $PRINT_RESULT .= '<div class="category__btn-strip-2-child"></div>';
+                                  $PRINT_RESULT .= '</div>'; //category__btn-inner-child
+                                  $PRINT_RESULT .= '</div>'; //category__btn-child
+                                  $PRINT_RESULT .= '</div>'; //category__description-child
+                                  $PRINT_RESULT .= '<div class="category__service-description-box-child">';
+                                  foreach ($service_children as $post) {
+                                    $PRINT_RESULT .= '<div class="category__service-description-child">';
+                                    $PRINT_RESULT .= '<div class="category__service-title-child">';
+                                    $PRINT_RESULT .= $post->post_title;
+                                    $PRINT_RESULT .= '</div>'; //category__service-title-child
+                                    if ($post->post_status == 'publish') {
+                                      $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
+                                    }
+                                    $PRINT_RESULT .= '<div class="category__service-price-child">';
+                                    $PRINT_RESULT .= get_field('services_price', $post->ID);
+                                    $PRINT_RESULT .= ' ₽</div>'; //category__service-price-child
+                                    $PRINT_RESULT .= '</div>'; //category__service-description-child
+                                  }
+                                  $PRINT_RESULT .= '</div>'; //category__service-description-box-child
+                                  $PRINT_RESULT .= '</div>'; //page-services__category-child
+                                }
+                              }
+                            }
+
+                            if ($service) {
+                              foreach ($service as $post) {
+                                $PRINT_RESULT .= '<div class="category__service-description">';
+                                $PRINT_RESULT .= '<div class="category__service-title">';
+                                $PRINT_RESULT .= $post->post_title;
+                                $PRINT_RESULT .= '</div>'; //category__service-title
+
+                                if ($post->post_status == 'publish') {
+                                  $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
+                                }
+
+                                $PRINT_RESULT .= '<div class="category__service-price">';
+                                $PRINT_RESULT .= get_field('services_price', $post->ID);
+                                $PRINT_RESULT .= ' ₽</div>'; //category__service-price
+                                $PRINT_RESULT .= '</div>'; //category__service-description
+                              }
+                            }
+                            $PRINT_RESULT .= '</div>'; //category__service-description-box
+                            $PRINT_RESULT .= '</div>'; //page-services__category
+
+                            echo $PRINT_RESULT;
                           }
-                          $PRINT_RESULT .= '<div class="category__service-price-child">';
-                          $PRINT_RESULT .= get_field('services_price', $post->ID);
-                          $PRINT_RESULT .= ' ₽</div>'; //category__service-price-child
-                          $PRINT_RESULT .= '</div>'; //category__service-description-child
+                          // $categories = array_diff($categories, $categories_children);
                         }
-                        $PRINT_RESULT .= '</div>'; //category__service-description-box-child
-                        $PRINT_RESULT .= '</div>'; //page-services__category-child
                       }
+                    } else {
+                      echo 'В данном разделе услуги не представлены';
                     }
                   }
-
-                  if ($service) {
-                    foreach ($service as $post) {
-                      $PRINT_RESULT .= '<div class="category__service-description">';
-                      $PRINT_RESULT .= '<div class="category__service-title">';
-                      $PRINT_RESULT .= $post->post_title;
-                      $PRINT_RESULT .= '</div>'; //category__service-title
-
-                      if ($post->post_status == 'publish') {
-                        $PRINT_RESULT .= '<a href="' . get_permalink($post) . '" class="link"><span>узнать больше</span><i class="far fa-question-circle"></i></a>';
-                      }
-
-                      $PRINT_RESULT .= '<div class="category__service-price">';
-                      $PRINT_RESULT .= get_field('services_price', $post->ID);
-                      $PRINT_RESULT .= ' ₽</div>'; //category__service-price
-                      $PRINT_RESULT .= '</div>'; //category__service-description
-                    }
-                  }
-                  $PRINT_RESULT .= '</div>'; //category__service-description-box
-                  $PRINT_RESULT .= '</div>'; //page-services__category
-
-                  echo $PRINT_RESULT;
-                }
-                // $categories = array_diff($categories, $categories_children);
-              }
-            }
-          } else {
-            echo 'В данном разделе услуги не представлены';
-          }
-        }
-        // END функция вывода постов
-        ?>
-
-
-
+                  // END функция вывода постов
+                ?>
 
                 <!-- АНАЛИЗЫ -->
                 <div class="page-services__item" id="page-services__item--analyzes">
@@ -257,16 +250,6 @@
                     </div>
                 </div>
 
-                <!-- РЕПРОДУКТИВНОЕ ЗДОРОВЬЕ -->
-                <!-- <div class="page-services__item" id="page-services__item--health">
-          <div class="page-services__item-title">
-            Репродуктивное здоровье
-          </div>
-          <div class="page-services__item-box">
-            <? //print_posts('health'); ?>
-          </div>
-        </div> -->
-
                 <!-- АКЦИИ -->
                 <div class="page-services__item" id="page-services__item--sales">
                     <div class="page-services__item-title">
@@ -275,19 +258,19 @@
                     <div class="page-services__item-box">
                         <div class="section__items page-blog__items">
                             <?php
-                $WP_posts = get_posts([
-                  'posts_per_page' => -1,
-                  'post_type' => 'post',
-                  'post_status' => 'publish',
-                  'category' => 4,
-                  'orderby' => 'meta_value',
-                  'meta_key'  => 'sale_end',
-                  'order' => 'DESC',
-                  'posts_per_page' => 6
-                ]);
-              if ($WP_posts) {
-                foreach ($WP_posts as $post) {
-              ?>
+                              $WP_posts = get_posts([
+                                'posts_per_page' => -1,
+                                'post_type' => 'post',
+                                'post_status' => 'publish',
+                                'category' => 4,
+                                'orderby' => 'meta_value',
+                                'meta_key'  => 'sale_end',
+                                'order' => 'DESC',
+                                'posts_per_page' => 6
+                              ]);
+                            if ($WP_posts) {
+                              foreach ($WP_posts as $post) {
+                            ?>
                             <a class="link page-blog__item-link" href="<?php the_permalink(); ?>">
                                 <div
                                     class="page-blog__item <?php if (get_field('sale_end', false, false) >= date("Ymd")) echo 'active'?>">
@@ -296,13 +279,13 @@
                                     <div class="page-blog__item-box" style="color: <? the_field('title_color') ?>">
                                         <div class="page-blog__item-date"><?php the_field('sale_start') ?> -
                                             <?php 
-                      the_field('sale_end');
-                      if (get_field('sale_end', false, false) < date("Ymd")) {
-                        echo '<div class="sale-marker red">АКЦИЯ ЗАКОНЧИЛАСЬ</div>';
-                      } else {
-                        echo '<div class="sale-marker green">АКЦИЯ ДЕЙСТВУЕТ</div>';
-                      }
-                      ?>
+                                              the_field('sale_end');
+                                              if (get_field('sale_end', false, false) < date("Ymd")) {
+                                                echo '<div class="sale-marker red">АКЦИЯ ЗАКОНЧИЛАСЬ</div>';
+                                              } else {
+                                                echo '<div class="sale-marker green">АКЦИЯ ДЕЙСТВУЕТ</div>';
+                                              }
+                                              ?>
                                         </div>
                                         <div class="page-blog__item-title"><?php echo $post->post_title; ?></div>
                                         <div class="page-blog__item-text"><?php the_excerpt(); ?></div>
@@ -310,7 +293,7 @@
                                 </div>
                             </a>
                             <?}}
-                else {echo '</div>';}?>
+                              else {echo '</div>';}?>
                         </div>
                     </div>
                 </div>

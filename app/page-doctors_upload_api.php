@@ -4,30 +4,30 @@
 
 <!-- ИНДЕКС -->
 <div class="search__wrap">
-  <div class="search__close-inner">
-    <div class="search__close"></div>
-  </div>
-  <div class="search__inner">
+    <div class="search__close-inner">
+        <div class="search__close"></div>
+    </div>
+    <div class="search__inner">
 
-    <i class="fas fa-search"></i>
-    <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
-  </div>
+        <i class="fas fa-search"></i>
+        <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+    </div>
 </div>
 <section class="section">
-  <div class="wrap">
+    <div class="wrap">
 
-    <div class="section__container" style="word-wrap: break-word;">
+        <div class="section__container" style="word-wrap: break-word;">
 
-      <table>
-        <tbody>
-          <tr style="outline: solid; background: lightgray;">
-            <td>статус</td>
-            <td>название</td>
-            <td>ID Medods</td>
-            <td>ID WP</td>
-          </tr>
+            <table>
+                <tbody>
+                    <tr style="outline: solid; background: lightgray;">
+                        <td>статус</td>
+                        <td>название</td>
+                        <td>ID Medods</td>
+                        <td>ID WP</td>
+                    </tr>
 
-          <?
+                    <?
 
       // =======================================
       // ===============ВЫГРУЗКА================
@@ -205,10 +205,10 @@
       // echo '<br>Успешно добавлено или обновлено: ' . $POST_count . '<br>';
       // echo '<br>Ошибок за цикл: ' . $ERROR_count . '<br>';
       ?>
-        </tbody>
-      </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </section>
 
 

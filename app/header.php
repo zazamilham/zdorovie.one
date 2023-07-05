@@ -48,34 +48,9 @@
         <div><img src="https://mc.yandex.ru/watch/72136609" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
-
-    <!-- Google Tag Manager -->
-    <!-- <script>
-  (function(w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({
-      'gtm.start': new Date().getTime(),
-      event: 'gtm.js'
-    });
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src =
-      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', 'GTM-5TWSFX5');
-  </script> -->
-    <!-- End Google Tag Manager -->
-
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TWSFX5" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript> -->
-    <!-- End Google Tag Manager (noscript) -->
-
     <div id="wptime-plugin-preloader"></div>
     <div id="record__btn" class="record__btn medods-record-btn">Онлайн-запись</div>
     <!-- header menu -->
@@ -125,13 +100,12 @@
                             href="tel:<?php echo $all_options['number_phone']; ?>"><?php echo $all_options['number_phone']; ?></a>
 
                         <?php
-            $args = array(
-              'theme_location' => 'head_menu'
-            );
-            wp_nav_menu($args);
+                            $args = array(
+                            'theme_location' => 'head_menu'
+                            );
+                            wp_nav_menu($args);
 
-            ?>
-
+                            ?>
                     </div>
                     <div class="header__buttons-block">
                         <div class="header__btn header__btn-search"><i class="fas fa-search search-btn"></i></div>

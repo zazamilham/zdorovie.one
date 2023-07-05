@@ -1,71 +1,34 @@
 <?php get_header();  ?>
 
-<!-- ИНДЕКС -->
+<!-- СТРАНИЦА ОТЗЫВОВ -->
 
-<section class="section reviews__section">
-  <div class="wrap wrap--blog">
-    <div class="section__container reviews__container">
-      <div class="section__description">
-        <div class="section__title reviews__title"><?php the_title(); ?></div>
-        <div class="section__text">На независимых ресурсах</div>
-      </div>
-      <div class="section__items reviews__items">
+<section class="section page-blog-note__slide-cover" style="object-position: <? the_field('cover_position') ?>%">
 
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_flamp'); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__flamp.svg"
-              alt="Flamp">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_flamp'); ?>
-              </div>
-              <?php the_field('amount_flamp'); ?>
+    <? if (has_post_thumbnail()) { ?>
+    <? the_post_thumbnail('blog-page_cover_slide', array('class' => "page-blog-note__slide-cover-img")); ?>
+    <? } ?>
+
+    <div class="wrap wrap--margin">
+        <div class="section__container">
+            <div class="section__description">
+                <h1 class="section__title page-blog-note__item-title" style="color: <? the_field('title_color') ?>">
+                    <?php echo $post->post_title; ?>
+                </h1>
             </div>
-          </a>
         </div>
-
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_2gis'); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__2gis.svg"
-              alt="2gis">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_2gis'); ?>
-              </div>
-              <?php the_field('amount_2gis'); ?>
-            </div>
-          </a>
-        </div>
-
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_yandex'); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__yandex.svg"
-              alt="Yandex">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_yandex'); ?>
-              </div>
-              <?php the_field('amount_yandex'); ?>
-            </div>
-          </a>
-        </div>
-
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_pro'); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__pro.svg"
-              alt="Продокторов">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_pro'); ?>
-              </div>
-              <?php the_field('amount_pro'); ?>
-            </div>
-          </a>
-        </div>
-
-      </div>
     </div>
-  </div>
 </section>
+
+<section class="section page-blog-note__section reviews__section">
+    <div class="wrap wrap--slide-cover">
+        <div class="section__container reviews__container">
+            <div class="section__items  slide-cover">
+                <script src="https://res.smartwidgets.ru/app.js" defer></script>
+                <div class="sw-app" data-app="70ddc22e9cd1805697f16c03b8c7f0f5"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <?php get_footer(); ?>

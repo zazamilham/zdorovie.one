@@ -324,34 +324,34 @@ get_header();
                 <div class="page-blog-note__hints-inner" id="page-blog-note__hints-inner">
 
                     <?php
-                          if (get_field('hints-check-1')) {
-                            echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-1">
-                                          <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
-                                          <div class="page-blog-note__hints-desc">' . get_field('hint-1') . '</div>';
-                            if (get_field('hint-link-1')) {
-                              echo '<a class="link page-blog-note__hints-link" href="' . get_field('hint-link-1') . '">перейти</a>';
-                            }
-                            echo '</div>';
-                          }
-                          if (get_field('hints-check-2')) {
-                            echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-2">
-                                          <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
-                                          <div class="page-blog-note__hints-desc">' . get_field('hint-2') . '</div>';
-                            if (get_field('hint-link-2')) {
-                              echo '<a class="link page-blog-note__hints-link" href="' . get_field('hint-link-2') . '">перейти</a>';
-                            }
-                            echo '</div>';
-                          }
-                          if (get_field('hints-check-3')) {
-                            echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-3">
-                                          <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
-                                          <div class="page-blog-note__hints-desc">' . get_field('hint-3') . '</div>';
-                            if (get_field('hint-link-3')) {
-                              echo '<a class="link page-blog-note__hints-link" href="' . get_field('hint-link-3') . '">перейти</a>';
-                            }
-                            echo '</div>';
-                          }
-                          ?>
+                      if (get_field('hints-check-1')) {
+                        echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-1">
+                                      <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
+                                      <div class="page-blog-note__hints-desc">' . get_field('hint-1') . '</div>';
+                        if (get_field('hint-link-1')) {
+                          echo '<a class="link page-blog-note__hints-link" href="' . get_field('hint-link-1') . '">перейти</a>';
+                        }
+                        echo '</div>';
+                      }
+                      if (get_field('hints-check-2')) {
+                        echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-2">
+                                      <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
+                                      <div class="page-blog-note__hints-desc">' . get_field('hint-2') . '</div>';
+                        if (get_field('hint-link-2')) {
+                          echo '<a class="link page-blog-note__hints-link" href="' . get_field('hint-link-2') . '">перейти</a>';
+                        }
+                        echo '</div>';
+                      }
+                      if (get_field('hints-check-3')) {
+                        echo '<div class="page-blog-note__hints-modal page-blog-note__hints-modal-on page-blog-note__hints-modal-3">
+                                      <div class="page-blog-note__hints-close"><i class="page-blog-note__hints-close-i fas fa-times"></i></div>
+                                      <div class="page-blog-note__hints-desc">' . get_field('hint-3') . '</div>';
+                        if (get_field('hint-link-3')) {
+                          echo '<a class="link page-blog-note__hints-link" href="' . get_field('hint-link-3') . '">перейти</a>';
+                        }
+                        echo '</div>';
+                      }
+                    ?>
 
                 </div>
             </div>

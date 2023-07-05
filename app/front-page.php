@@ -174,23 +174,23 @@
             <div class="section__items doctors__items">
 
                 <?php
-        $doctors_page = get_posts([
-            'posts_per_page' => -1,
-            'post_type' => 'doctors',
-            'post_status' => 'publish',
-            'orderby' => 'title',
-            'order' => 'ASC',
-            'meta_query' => [
-              // 'relation' => 'AND',
-              [
-                'key' => 'doctors_active',
-                'value' => 'on',
-                'compare' => 'LIKE'
-              ]
-            ],
-          ]);
-        foreach ($doctors_page as $page) {
-        ?>
+                  $doctors_page = get_posts([
+                      'posts_per_page' => -1,
+                      'post_type' => 'doctors',
+                      'post_status' => 'publish',
+                      'orderby' => 'title',
+                      'order' => 'ASC',
+                      'meta_query' => [
+                        // 'relation' => 'AND',
+                        [
+                          'key' => 'doctors_active',
+                          'value' => 'on',
+                          'compare' => 'LIKE'
+                        ]
+                      ],
+                    ]);
+                  foreach ($doctors_page as $page) {
+                  ?>
                 <div class="doctors__item">
                     <a class="link doctors__id-link" href="<?php the_permalink($page->ID); ?>">
                         <?
@@ -214,8 +214,8 @@
                             Выберите отделение клиники
                         </div>
                         <? 
-            foreach (get_field('doctors_clinics', $page->ID) as $clinic) {
-            if ($clinic == 1) {?>
+                          foreach (get_field('doctors_clinics', $page->ID) as $clinic) {
+                          if ($clinic == 1) {?>
                         <div class="link section__link page-doctor__item-btn page-doctor__item-btn--m-auto"
                             data-id="<?php the_field('doctors_id', $page->ID); ?>" data-clinic="1">ул. Выборная</div>
                         <?}?>
@@ -228,9 +228,9 @@
 
                 </div>
                 <?php
-        }
-        wp_reset_postdata();
-        ?>
+                  }
+                  wp_reset_postdata();
+                  ?>
             </div>
         </div>
     </div>
@@ -246,13 +246,13 @@
                     <div class="news__list">
 
                         <?php
-            $myposts = get_posts(array(
-              'category' => 1,
-              'numberposts' => 4
+                          $myposts = get_posts(array(
+                            'category' => 1,
+                            'numberposts' => 4
 
-            ));
-            foreach ($myposts as $post) {
-              setup_postdata($post); ?>
+                          ));
+                          foreach ($myposts as $post) {
+                            setup_postdata($post); ?>
 
                         <a class="link news__item" href="<?php the_permalink(); ?>">
                             <div class="news__item-title"><?php echo $post->post_title; ?></div>
@@ -261,9 +261,9 @@
                         </a>
 
                         <?php
-            }
-            wp_reset_postdata();
-            ?>
+                          }
+                          wp_reset_postdata();
+                          ?>
 
                     </div>
                     <a class="link news__link-btn link-underline" href="<?php echo get_home_url(); ?>/blog"><i
@@ -296,71 +296,22 @@
 </section>
 
 <!-- reviews -->
-<!-- <section class="section reviews__section">
-  <div class="wrap">
-    <div class="section__container reviews__container">
-      <div class="section__description">
-        <div class="section__title reviews__title">ОТЗЫВЫ О НАС</div>
-        <div class="section__text">На независимых ресурсах</div>
-      </div>
-      <div class="section__items reviews__items">
-
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_flamp', 2716); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__flamp.svg"
-              alt="Flamp">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_flamp', 2716); ?>
-              </div>
-              <?php the_field('amount_flamp', 2716); ?>
+<section class="section reviews__section">
+    <div class="wrap">
+        <div class="section__container reviews__container">
+            <div class="section__description">
+                <div class="section__title reviews__title">ОТЗЫВЫ О НАС</div>
+                <div class="section__text">На независимых ресурсах</div>
             </div>
-          </a>
-        </div>
+            <div class="section__items reviews__items">
 
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_2gis', 2716); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__2gis.svg"
-              alt="2gis">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_2gis', 2716); ?>
-              </div>
-              <?php the_field('amount_2gis', 2716); ?>
+                <script src="https://res.smartwidgets.ru/app.js" defer></script>
+                <div class="sw-app" data-app="70ddc22e9cd1805697f16c03b8c7f0f5"></div>
+
             </div>
-          </a>
         </div>
-
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_yandex', 2716); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__yandex.svg"
-              alt="Yandex">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_yandex', 2716); ?>
-              </div>
-              <?php the_field('amount_yandex', 2716); ?>
-            </div>
-          </a>
-        </div>
-
-        <div class="reviews__item">
-          <a class="link reviews__item-link" href="<?php the_field('link_pro', 2716); ?>">
-            <img class="reviews__img" src="<?php bloginfo('template_url'); ?>/assets/theme/img/reviews__pro.svg"
-              alt="Продокторов">
-            <div class="reviews__item-desc">
-              <div class="reviews__item-rate">
-                <i class="fas fa-star-half-alt"></i> <?php the_field('rate_pro', 2716); ?>
-              </div>
-              <?php the_field('amount_pro', 2716); ?>
-            </div>
-          </a>
-        </div>
-
-      </div>
     </div>
-  </div>
-</section> -->
+</section>
 
 <!-- <script>
 function medodsRecDoctors(elem) {

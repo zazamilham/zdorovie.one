@@ -19,7 +19,7 @@
     position: relative;
     padding: 0 100%;
     margin: 0 -100%;
-    background-color: #e5f0f2;
+    background-color: $blog-bg-color;
     z-index: 1;
   }
 
@@ -189,7 +189,7 @@
   &__description,
   &__description-child {
     position: relative;
-    background: #e5f0f2;
+    background: $blog-bg-color;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -272,7 +272,7 @@
 
   // .category__description-child
   &__description-child {
-    background: lighten($color: #e5f0f2, $amount: 2%);
+    background: lighten($color: $blog-bg-color, $amount: 2%);
 
     // .category__description-child i
     i {

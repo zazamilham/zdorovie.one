@@ -2,7 +2,7 @@
 .page-blog-note {
   // .page-blog-note__section
   &__section {
-    background: #e5f0f2;
+    background: $blog-bg-color;
   }
 
   // .page-blog-note__container
@@ -16,7 +16,7 @@
   &__slide-cover {
     position: relative;
     height: 71.28vh;
-    background: #e5f0f2;
+    background: $blog-bg-color;
 
     // .page-blog-note__slide-cover .section
     & .section {

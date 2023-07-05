@@ -15,6 +15,21 @@
 	.fp-controlArrow {
 		display: none;
 	}
+
+	//------слайдер
+	.slider__section {
+		height: 30vh;
+
+		& .slide {
+			height: 30vh;
+		}
+	}
+
+	//------обложка
+	.page-blog-note__slide-cover,
+	.page-blog-note__slide-cover img {
+		height: 30vh;
+	}
 }
 
 @media (max-width: 1750px) {
@@ -461,6 +476,12 @@
 			height: auto;
 			min-height: 0;
 		}
+	}
+
+	//------слайдер
+	.slider__section {
+		padding-top: 64px;
+		margin-bottom: 64px;
 	}
 
 	//------меню в шапке

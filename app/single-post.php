@@ -56,6 +56,8 @@ get_header();
                     <div class="page-blog-note__item-content">
                         <?php the_content(); ?>
                     </div>
+
+                    <!-- врачи -->
                     <? if (get_field('bind_doctors')) { ?>
                     <div class="page-blog-note__item-doctors-list">
                         <h2>Прием ведут</h2>
@@ -96,17 +98,15 @@ get_header();
                                     <?}}?>
                                 </div>
                             </div>
-                            <? }} ?>
+                            <? } ?>
                         </div>
                     </div>
+                    <? } ?>
 
+                    <!-- услуги -->
                     <? if (get_field('bind_services')) { ?>
                     <div>
                         <h2>Услуги по теме</h2>
-                        <a href="<?php echo get_home_url(); ?>/services" class="link section__link section__link--blue"
-                            style="margin-top: 0; margin-bottom: 30px"><i class="fas fa-angle-right"></i>весь список
-                            услуг
-                        </a>
 
                         <?
                           // получаем страницы из базы WP

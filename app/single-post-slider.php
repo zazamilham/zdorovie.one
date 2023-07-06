@@ -64,25 +64,23 @@ get_header();
                     <div class="page-blog-note__item-content">
                         <?php the_content(); ?>
                     </div>
-                    <?
-                      if (get_field('bind_doctors')) {
-                    ?>
+
+                    <!-- врачи -->
+                    <?  if (get_field('bind_doctors')) {  ?>
                     <div class="page-blog-note__item-doctors-list">
                         <h2>Прием ведут</h2>
                         <div class="section__items page-doctors__items">
-                            <?php
-                          foreach (get_field('bind_doctors') as $page) {
-                          ?>
+                            <?php foreach (get_field('bind_doctors') as $page) {  ?>
                             <div class="page-doctors__item">
                                 <a class="link page-doctors__item-link" href="<?php the_permalink($page->ID); ?>">
                                     <? 
-                          if ( has_post_thumbnail($page->ID) ) {
-                            echo get_the_post_thumbnail($page->ID, 'doctor-page_cover', array('class' => "page-doctors__img"));
-                          }
-                          else {
-                            echo '<img class="page-doctors__img" src="' . wp_get_attachment_image_url( 1704, 'doctor-list_cover' ). '"/>';
-                          }
-                        ?>
+                                      if ( has_post_thumbnail($page->ID) ) {
+                                        echo get_the_post_thumbnail($page->ID, 'doctor-page_cover', array('class' => "page-doctors__img"));
+                                      }
+                                      else {
+                                        echo '<img class="page-doctors__img" src="' . wp_get_attachment_image_url( 1704, 'doctor-list_cover' ). '"/>';
+                                      }
+                                    ?>
                                     <div class="page-doctors__disc">
                                         <p class="page-doctors__name"><?php echo $page->post_title; ?></p>
                                         <p class="page-doctors__spec"><?php the_field('doctors_spec', $page->ID); ?></p>
@@ -108,13 +106,13 @@ get_header();
                                     <?}}?>
                                 </div>
                             </div>
-                            <? }} ?>
+                            <? } ?>
                         </div>
                     </div>
+                    <? } ?>
 
-                    <?
-                      if (get_field('bind_services')) {
-                    ?>
+                    <!-- услуги -->
+                    <? if (get_field('bind_services')) {  ?>
                     <div>
                         <h2>Услуги по теме</h2>
                         <?

@@ -52,11 +52,77 @@
   &__contacts {
     margin-top: 60px;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     display: grid;
-    grid-template-columns: minmax(auto, 400px) auto;
-    grid-column-gap: 25px;
+    grid-template-columns: 250px auto;
+    grid-column-gap: 80px;
     grid-row-gap: 25px;
+    height: fit-content;
+
+    // .footer__contacts a
+    a {
+      padding: 10px 20px 10px 15px;
+      margin-left: -15px;
+      border-radius: 3px;
+
+      // .footer__contacts a:hover
+      @media (hover: hover) {
+        &:hover {
+          background-color: $accent-color;
+          color: inherit;
+        }
+      }
+
+      // .footer__contacts a img
+      & img {
+        display: block;
+        height: 25px;
+        width: auto;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  // .footer__clinic
+  &__clinic {
+    display: grid;
+    grid-template-columns: minmax(200px, 400px) minmax(200px, 400px);
+    margin-bottom: 25px;
+    grid-gap: 25px;
+    height: fit-content;
+  }
+
+  // footer__clinic-contacts
+  &__clinic-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    // border: 1px solid $text-white;
+    border-radius: 6px;
+  }
+
+  // .footer__clinic-item
+  &__clinic-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid $text-white;
+    border-radius: 6px;
+    transition:
+      border 0.1s,
+      background-color 0.1s;
+    text-decoration: none;
+    margin: 0 !important;
+
+    // .footer__clinic-item:hover
+    @media (hover: hover) {
+      &:hover {
+        background-color: $accent-color;
+        border: 1px solid $accent-color;
+      }
+    }
   }
 
   // .footer__clinic-adres
@@ -98,20 +164,11 @@
     }
   }
 
-  // .footer__clinic
-  &__clinic {
-  }
-
-  // .footer__clinic
-  // .footer__clinic-contacts
-  &__clinic,
-  &__clinic-contacts {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    max-width: 600px;
+  // .footer__clinic-worktime-p1
+  // .footer__clinic-worktime-p2
+  &__clinic-worktime-p1,
+  &__clinic-worktime-p2 {
+    font-size: 14px;
   }
 
   // .footer__clinic-adres
@@ -155,10 +212,6 @@
 
   // .footer__clinic-worktime-p2
   &__clinic-worktime-p2 {
-  }
-
-  // .footer__clinic-contacts
-  &__clinic-contacts {
   }
 
   // .footer__clinic-tel

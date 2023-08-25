@@ -20,7 +20,7 @@ add_action(
 		wp_enqueue_style('slick-style', get_stylesheet_directory_uri() . '/assets/vendor/css/slick.css', array(), null);
 		wp_enqueue_style('sweetalert2-style', get_stylesheet_directory_uri() . '/assets/vendor/css/sweetalert2.css', array(), null);
 		// wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), time());
-		wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), '2.5');
+		wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), '3.1');
 		wp_enqueue_style('wp-style', get_stylesheet_uri());
 	}
 );
@@ -40,7 +40,7 @@ add_action(
 		wp_enqueue_script('slick-script', get_template_directory_uri() . '/assets/vendor/js/slick.js', array('jquery'), null, true);
 		wp_enqueue_script('sweetalert2-script', get_template_directory_uri() . '/assets/vendor/js/sweetalert2.all.js', array('jquery'), null, true);
 		// wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), time(), true);
-		wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), '2.5', true);
+		wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), '3.1', true);
 	}
 );
 
@@ -763,14 +763,33 @@ add_action(
 		);
 		add_settings_field('email_to_send_field', 'E-mail', 'true_option_display_settings', $true_page, 'true_section_1', $true_field_params);
 
+		// // Создадим текстовое поле в секции
+		// $true_field_params = array(
+		// 	'type'      => 'text', // тип
+		// 	'id'        => 'flamp_link',
+		// 	'desc'      => 'Введите ссылку на компанию на Флампе', // описание
+		// 	'label_for' => 'flamp_link' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+		// );
+		// add_settings_field('flamp_link_field', 'Фламп', 'true_option_display_settings', $true_page, 'true_section_1', $true_field_params);
+
 		// Создадим текстовое поле в секции
 		$true_field_params = array(
 			'type'      => 'text', // тип
-			'id'        => 'flamp_link',
-			'desc'      => 'Введите ссылку на компанию на Флампе', // описание
-			'label_for' => 'flamp_link' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+			'id'        => 'wa_link',
+			'desc'      => 'Введите ссылку на компанию на WhatsApp', // описание
+			'label_for' => 'wa_link' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
 		);
-		add_settings_field('flamp_link_field', 'Фламп', 'true_option_display_settings', $true_page, 'true_section_1', $true_field_params);
+		add_settings_field('wa_link_field', 'WhatsApp', 'true_option_display_settings', $true_page, 'true_section_1', $true_field_params);
+
+		// Создадим текстовое поле в секции
+		$true_field_params = array(
+			'type'      => 'text', // тип
+			'id'        => 'tg_link',
+			'desc'      => 'Введите ссылку на компанию на Telegram', // описание
+			'label_for' => 'tg_link' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+		);
+		add_settings_field('tg_link_field', 'Telegram', 'true_option_display_settings', $true_page, 'true_section_1', $true_field_params);
+
 
 		// Создадим текстовое поле в секции
 		$true_field_params = array(
@@ -836,6 +855,15 @@ add_action(
 			'label_for' => 'worktime_2_1' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
 		);
 		add_settings_field('time_2_1_field', 'Время работы в выходные', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
+		
+		// Создадим текстовое поле в секции
+		$true_field_params = array(
+			'type'      => 'text', // тип
+			'id'        => '2gis_1',
+			'desc'      => 'Вставьте ссылку на отделение в 2ГИС', // описание
+			'label_for' => '2gis_1' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+		);
+		add_settings_field('2gis_1_field', 'Ссылка в 2ГИС', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
 
 		// Создадим отступ в секции
 		$true_field_params = array(
@@ -881,6 +909,15 @@ add_action(
 		);
 		add_settings_field('worktime_2_2_field', 'Время работы в выходные', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
 
+		// Создадим текстовое поле в секции
+		$true_field_params = array(
+			'type'      => 'text', // тип
+			'id'        => '2gis_2',
+			'desc'      => 'Вставьте ссылку на отделение в 2ГИС', // описание
+			'label_for' => '2gis_2' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+		);
+		add_settings_field('2gis_2_field', 'Ссылка в 2ГИС', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
+
 		// Создадим отступ в секции
 		$true_field_params = array(
 			'type'      => 'padding', // тип
@@ -924,6 +961,15 @@ add_action(
 			'label_for' => 'worktime_2_3' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
 		);
 		add_settings_field('worktime_2_3_field', 'Время работы в выходные', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
+
+		// Создадим текстовое поле в секции
+		$true_field_params = array(
+			'type'      => 'text', // тип
+			'id'        => '2gis_3',
+			'desc'      => 'Вставьте ссылку на отделение в 2ГИС', // описание
+			'label_for' => '2gis_3' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+		);
+		add_settings_field('2gis_3_field', 'Ссылка в 2ГИС', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
 
 		// Создадим отступ в секции
 		$true_field_params = array(
@@ -969,6 +1015,15 @@ add_action(
 		);
 		add_settings_field('worktime_2_4_field', 'Время работы в выходные', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
 
+		// Создадим текстовое поле в секции
+		$true_field_params = array(
+			'type'      => 'text', // тип
+			'id'        => '2gis_4',
+			'desc'      => 'Вставьте ссылку на отделение в 2ГИС', // описание
+			'label_for' => '2gis_4' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+		);
+		add_settings_field('2gis_4_field', 'Ссылка в 2ГИС', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
+
 		// Создадим отступ в секции
 		$true_field_params = array(
 			'type'      => 'padding', // тип
@@ -1012,6 +1067,15 @@ add_action(
 			'label_for' => 'worktime_2_5' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
 		);
 		add_settings_field('worktime_2_5_field', 'Время работы в выходные', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
+
+		// Создадим текстовое поле в секции
+		$true_field_params = array(
+			'type'      => 'text', // тип
+			'id'        => '2gis_5',
+			'desc'      => 'Вставьте ссылку на отделение в 2ГИС', // описание
+			'label_for' => '2gis_5' // позволяет сделать название настройки лейблом (если не понимаете, что это, можете не использовать), по идее должно быть одинаковым с параметром id
+		);
+		add_settings_field('2gis_5_field', 'Ссылка в 2ГИС', 'true_option_display_settings', $true_page, 'true_section_2', $true_field_params);
 
 		// Создадим отступ в секции
 		$true_field_params = array(

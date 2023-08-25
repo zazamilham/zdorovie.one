@@ -361,13 +361,13 @@ jQuery(document).ready(function ($) {
             // centerPadding: '50px',
             pauseOnHover: false,
             pauseOnFocus: false,
-            // lazyLoad: 'ondemand',
+            // lazyLoad: "ondemand",
         });
     }
 
     if ($(".doctors__items")) {
         $(".doctors__items").slick({
-            infinite: true,
+            infinite: false,
             autoplay: true,
             prevArrow:
                 '<i class="fas fa-chevron-left slick-prev slick-arrows"></i>',
@@ -383,7 +383,7 @@ jQuery(document).ready(function ($) {
             centerMode: false,
             centerPadding: "50px",
             pauseOnHover: true,
-            lazyLoad: "ondemand",
+            lazyLoad: "progressive",
             responsive: [
                 {
                     breakpoint: 1280,

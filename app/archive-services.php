@@ -24,10 +24,30 @@
                                 class="page-services__link-img"
                                 src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__baby-boy.svg">
                             Дети</a>
-                        <a class="link page-services__link page-services__link--sales" href="#sales"><img
+                        <a class="link page-services__link page-services__link--sales" href="#sales">
+                            <!-- <img
                                 class="page-services__link-img"
-                                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__sales.svg">
-                            Акции</a>
+                                src="<?php bloginfo('template_url'); ?>/assets/theme/img/page-services__sales.svg"> -->
+                            <svg width="72" height="72" viewBox="0 0 72 72" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="page-services__link-img sales">
+                                <g clip-path="url(#clip0_747_37)">
+                                    <path
+                                        d="M35.989 68.2674L2.97112 35.1337C2.00001 34.1592 2 32.2102 2 32.2102C1.99997 28.7993 2.00012 7.84712 2 5.89809C1.99989 3.94907 3.94219 1.99924 6.37001 2.00001C8.79784 2.00078 30.1623 2.00033 32.1045 2.00001C34.0422 1.99969 34.0467 2.00422 35.0111 2.96778L35.0178 2.97453C35.989 3.94481 67.0646 35.1336 68.5213 36.5955C69.9779 38.0574 70.949 41.4683 68.5213 43.9044C66.0935 46.3406 49.099 64.3692 44.729 68.2674C40.3589 72.1657 35.989 68.2674 35.989 68.2674Z"
+                                        stroke="#404040" stroke-width="3" />
+                                    <circle cx="13" cy="12" r="6" stroke="#404040" stroke-width="3" />
+                                    <path class="heart"
+                                        d="M42.2242 35.5034C41.2616 37.4555 40.7462 40.0031 40.7462 41.0028C40.7462 42.0024 40.3703 37.4282 39.2683 35.5034C37.2293 31.9424 34.458 29.91 30.4005 30.0041C25.3664 30.1209 21.5545 33.9199 21.04 39.003C20.8202 41.1744 21.5327 43.0027 22.518 44.5023C23.5034 46.0019 40.7462 63 40.7462 63C40.7462 63 57.4966 46.0019 58.4819 44.5023C59.4672 43.0027 60.1802 41.1743 59.9598 39.003C59.4294 33.7773 55.2814 29.8546 50.1067 30.0041C46.2126 30.1167 43.9676 31.9681 42.2242 35.5034Z"
+                                        stroke="#404040" stroke-width="3" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_747_37">
+                                        <rect width="72" height="72" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            Акции
+                        </a>
                     </div>
                 </div>
             </div>
@@ -273,7 +293,7 @@
                             ?>
                             <a class="link page-blog__item-link" href="<?php the_permalink(); ?>">
                                 <div
-                                    class="page-blog__item <?php if (get_field('sale_end', false, false) >= date("Ymd")) echo 'active'?>">
+                                    class="page-blog__item page-sales__item<?php if (get_field('sale_end', false, false) >= date("Ymd")) echo 'active'?>">
                                     <img class="page-blog__item-img"
                                         src="<?php the_post_thumbnail_url('blog-page_cover_list', array()); ?>" alt="">
                                     <div class="page-blog__item-box" style="color: <? the_field('title_color') ?>">

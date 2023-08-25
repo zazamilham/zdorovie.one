@@ -36,13 +36,14 @@
     // .doctors__items .slick-arrows
     & .slick-arrows {
       cursor: pointer;
-      transform: scale(2);
       color: $text-color-section-title;
       position: absolute;
       top: 45%;
       transition: 0.2s;
+
+      // .doctors__items .slick-arrows::before
       &::before {
-        font-size: 18px;
+        font-size: 32px;
       }
       @media (hover: hover) {
         &:hover {

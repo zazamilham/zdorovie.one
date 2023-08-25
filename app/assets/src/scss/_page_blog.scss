@@ -57,7 +57,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      background-color: rgba(107, 166, 182, 0.7);
+      // background-color: rgba(107, 166, 182, 0.7);
       transition: background-color 0.3s;
     }
 
@@ -71,24 +71,28 @@
     // .page-blog__item.active
     &.active {
       &::after {
-        background-color: rgba(107, 166, 182, 0.1);
+        // background-color: rgba(107, 166, 182, 0.1);
+        background-color: rgba(107, 166, 182, 0.7);
       }
       & .page-blog__item-date,
       & .page-blog__item-title,
       & .page-blog__item-text {
-        color: inherit;
+        // color: inherit;
+        color: $text-white;
       }
     }
 
     // .page-blog__item:hover::after
     @media (hover: hover) {
       &:hover::after {
-        background-color: rgba(107, 166, 182, 0.1);
+        // background-color: rgba(107, 166, 182, 0.1);
+        background-color: rgba(107, 166, 182, 0.7);
       }
       &:hover .page-blog__item-date,
       &:hover .page-blog__item-title,
       &:hover .page-blog__item-text {
-        color: inherit;
+        // color: inherit;
+        color: $text-white;
       }
     }
   }
@@ -140,7 +144,8 @@
   &__item-date,
   &__item-title,
   &__item-text {
-    color: $text-white;
+    // color: $text-white;
+    color: inherit;
     background: none;
     padding: 3px 6px;
     transition: 0.3s;

@@ -106,6 +106,12 @@
   &__link-img {
     margin-right: 15px;
     height: 100%;
+
+    // .page-services__link-img.sales path.heart
+    &.sales path.heart {
+      animation: salesAnim 6s 2s infinite linear;
+      transform-origin: 56%;
+    }
   }
 
   // .page-services__items
@@ -496,5 +502,34 @@
   &__service-price-child {
     white-space: nowrap;
     padding-left: 7px;
+  }
+}
+
+@keyframes salesAnim {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  15% {
+    fill: none;
+  }
+  15.01% {
+    transform: rotate3d(0, 1, 0, 90deg);
+    fill: red;
+    stroke: red;
+  }
+  30% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+  45% {
+    transform: rotate3d(0, 1, 0, 270deg);
+    fill: red;
+    stroke: red;
+  }
+  45.01% {
+    fill: transparent;
+  }
+  60%,
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
   }
 }

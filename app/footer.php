@@ -12,82 +12,101 @@
 						$clink5 = $all_options['checkbox_5']; ?>
 		            </div>
 		            <div class="footer__contacts">
-
-		                <?php
-						if ($clink1) {
-							echo "
-								<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_1'] . "</div>
-								<div class=\"footer__clinic-worktime\">
-									<i class=\"far fa-calendar-alt\"></i>
-									<div>
-										<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_1'] . "</div>
-										<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_1'] . "</div>
-									</div>
-								</div>";
-						}
-						if ($clink2) {
-							echo "
-								<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_2'] . "</div>
-								<div class=\"footer__clinic-worktime\">
-									<i class=\"far fa-calendar-alt\"></i>
-									<div>
-										<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_2'] . "</div>
-										<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_2'] . "</div>
-									</div>
-								</div>";
-						}
-						if ($clink3) {
-							echo "
-								<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_3'] . "</div>
-								<div class=\"footer__clinic-worktime\">
-									<i class=\"far fa-calendar-alt\"></i>
-									<div>
-										<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_3'] . "</div>
-										<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_3'] . "</div>
-									</div>
-								</div>";
-						}
-						if ($clink4) {
-							echo "
-								<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_4'] . "</div>
-								<div class=\"footer__clinic-worktime\">
-									<i class=\"far fa-calendar-alt\"></i>
-									<div>
-										<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_4'] . "</div>
-										<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_4'] . "</div>
-									</div>
-								</div>";
-						}
-						if ($clink5) {
-							echo "
-								<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_5'] . "</div>
-								<div class=\"footer__clinic-worktime\">
-									<i class=\"far fa-calendar-alt\"></i>
-									<div>
-										<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_5'] . "</div>
-										<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_5'] . "</div>
-									</div>
-								</div>";
-						}
-						?>
-
-
-		                <a class="link footer__clinic-tel" href="tel:<?php echo $all_options['number_phone']; ?>">
-		                    <i class="fas fa-phone-alt"></i>
-		                    <?php echo $all_options['number_phone']; ?>
-		                </a>
-		                <a class="link footer__clinic-email" href="mailto:<?php echo $all_options['email_to_send']; ?>">
-		                    <i class="fas fa-envelope"></i>
-		                    <?php echo $all_options['email_to_send']; ?>
-		                </a>
-
-		                <a class="link footer__clinic-media" target="_blank" href="<?php echo $all_options['vk_link']; ?>">
-		                    <i class="fab fa-vk"></i>Мы Вконтакте
-		                </a>
-		                <a class="link footer__clinic-media" target="_blank" href="<?php echo $all_options['insta_link']; ?>">
-		                    <i class="fab fa-instagram"></i>Мы в Instagram
-		                </a>
-
+		                <div class="footer__clinic-contacts">
+		                    <a class="link footer__clinic-tel" href="tel:<?php echo $all_options['number_phone']; ?>">
+		                        <i class="fas fa-phone-alt"></i>
+		                        <?php echo $all_options['number_phone']; ?>
+		                    </a>
+		                    <a class="link footer__clinic-email" href="mailto:<?php echo $all_options['email_to_send']; ?>">
+		                        <i class="far fa-envelope"></i>
+		                        <?php echo $all_options['email_to_send']; ?>
+		                    </a>
+		                    <a class="link footer__clinic-media" target="_blank"
+		                        href="<?php echo $all_options['wa_link']; ?>">
+		                        <i class="fab fa-whatsapp"></i>WhatsApp
+		                    </a>
+		                    <a class="link footer__clinic-media" target="_blank"
+		                        href="<?php echo $all_options['tg_link']; ?>">
+		                        <i class="fab fa-telegram-plane"></i>Telegram
+		                    </a>
+		                    <a class="link footer__clinic-media" target="_blank"
+		                        href="<?php echo $all_options['vk_link']; ?>">
+		                        <i class="fab fa-vk"></i></i>Вконтакте
+		                    </a>
+		                    <a class="link footer__clinic-media" target="_blank"
+		                        href="<?php echo $all_options['insta_link']; ?>">
+		                        <i class="fab fa-instagram"></i>Instagram
+		                    </a>
+		                </div>
+		                <div class="footer__clinic">
+		                    <?php
+							if ($clink1) {
+								echo "
+									<a class=\"footer__clinic-item\" href=\"" . $all_options['2gis_1'] . "\" target=\"_blank\">
+										<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_1'] . "</div>
+										<div class=\"footer__clinic-worktime\">
+											<i class=\"far fa-calendar-alt\"></i>
+											<div>
+												<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_1'] . "</div>
+												<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_1'] . "</div>
+											</div>
+										</div>
+									</a>";
+							}
+							if ($clink2) {
+								echo "
+									<a class=\"footer__clinic-item\" href=\"" . $all_options['2gis_2'] . "\" target=\"_blank\">
+										<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_2'] . "</div>
+										<div class=\"footer__clinic-worktime\">
+											<i class=\"far fa-calendar-alt\"></i>
+											<div>
+												<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_2'] . "</div>
+												<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_2'] . "</div>
+											</div>
+										</div>
+									</a>";
+							}
+							if ($clink3) {
+								echo "
+									<a class=\"footer__clinic-item\" href=\"" . $all_options['2gis_3'] . "\" target=\"_blank\">
+										<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_3'] . "</div>
+										<div class=\"footer__clinic-worktime\">
+											<i class=\"far fa-calendar-alt\"></i>
+											<div>
+												<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_3'] . "</div>
+												<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_3'] . "</div>
+											</div>
+										</div>
+									</a>";
+							}
+							if ($clink4) {
+								echo "
+									<a class=\"footer__clinic-item\" href=\"" . $all_options['2gis_4'] . "\" target=\"_blank\">
+										<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_4'] . "</div>
+										<div class=\"footer__clinic-worktime\">
+											<i class=\"far fa-calendar-alt\"></i>
+											<div>
+												<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_4'] . "</div>
+												<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_4'] . "</div>
+											</div>
+										</div>
+									</a>";
+							}
+							if ($clink5) {
+								echo "
+									<a class=\"footer__clinic-item\" href=\"" . $all_options['2gis_5'] . "\" target=\"_blank\">
+										<div class=\"footer__clinic-adres\"><i class=\"fas fa-map-marker-alt\"></i>" . $all_options['adres_5'] . "</div>
+										<div class=\"footer__clinic-worktime\">
+											<i class=\"far fa-calendar-alt\"></i>
+											<div>
+												<div class=\"footer__clinic-worktime-p1\">" . $all_options['worktime_1_5'] . "</div>
+												<div class=\"footer__clinic-worktime-p2\">" . $all_options['worktime_2_5'] . "</div>
+											</div>
+										</div>
+									</a>";
+							}
+							?>
+		                </div>
 		            </div>
 		        </div>
 		        <div class="footer__map">
@@ -134,7 +153,8 @@
 		                </div>
 		            </div>
 		            <div class="footer__media">
-		                <div class="footer__media-watermark">ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ, НЕОБХОДИМА КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА.
+		                <div class="footer__media-watermark">ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ, НЕОБХОДИМА КОНСУЛЬТАЦИЯ
+		                    СПЕЦИАЛИСТА.
 		                </div>
 		            </div>
 		            <div class="footer__info">
@@ -145,7 +165,8 @@
 		            </div>
 		            <div class="footer__dev">
 		                <span class="footer__copy">Здоровье и материнство &copy; 2020-<?= date('Y'); ?> </span>
-		                <a class="link footer__dev-link" target="_blank" href="http://fufuter.ru/">Постарались и разработали
+		                <a class="link footer__dev-link" target="_blank" href="http://fufuter.ru/">Постарались и
+		                    разработали
 		                    сайт</a>
 		            </div>
 		        </div>

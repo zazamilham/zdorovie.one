@@ -443,6 +443,19 @@
 			width: 100%;
 		}
 	}
+
+	//------футер
+	.footer {
+		// .footer__contacts
+		&__contacts {
+			grid-column-gap: 40px;
+		}
+
+		// .footer__clinic
+		&__clinic {
+			grid-template-columns: 1fr;
+		}
+	}
 }
 
 @media (max-width: 768px) {
@@ -689,6 +702,24 @@
 	}
 	//------футер
 	.footer {
+		// .footer__contacts
+		&__contacts {
+			grid-template-columns: 1fr;
+			margin-top: 40px;
+			margin-bottom: 30px;
+		}
+
+		// .footer__clinic-contacts
+		&__clinic-contacts {
+			order: 1;
+			margin-left: 20px;
+		}
+
+		// .footer__clinic
+		&__clinic {
+			margin-bottom: 0;
+		}
+
 		// .footer__info
 		&__info {
 			flex-wrap: wrap;

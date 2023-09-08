@@ -301,6 +301,12 @@ mark {
 	}
 }
 
+iframe {
+	margin: 0 -50px;
+	width: -webkit-fill-available;
+	aspect-ratio: 2;
+}
+
 .wp-block-preformatted {
 	position: relative;
 	font-family: inherit;

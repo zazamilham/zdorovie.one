@@ -20,7 +20,7 @@ add_action(
 		wp_enqueue_style('slick-style', get_stylesheet_directory_uri() . '/assets/vendor/css/slick.css', array(), null);
 		wp_enqueue_style('sweetalert2-style', get_stylesheet_directory_uri() . '/assets/vendor/css/sweetalert2.css', array(), null);
 		// wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), time());
-		wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), '3.1');
+		wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/theme/css/style.css', array(), '3.5');
 		wp_enqueue_style('wp-style', get_stylesheet_uri());
 	}
 );
@@ -40,7 +40,7 @@ add_action(
 		wp_enqueue_script('slick-script', get_template_directory_uri() . '/assets/vendor/js/slick.js', array('jquery'), null, true);
 		wp_enqueue_script('sweetalert2-script', get_template_directory_uri() . '/assets/vendor/js/sweetalert2.all.js', array('jquery'), null, true);
 		// wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), time(), true);
-		wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), '3.1', true);
+		wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/theme/js/main.js', array('jquery'), '3.5', true);
 	}
 );
 

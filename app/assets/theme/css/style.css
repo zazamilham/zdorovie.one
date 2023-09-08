@@ -240,6 +240,12 @@ mark {
   margin-right: 50px;
 }
 
+iframe {
+  margin: 0 -50px;
+  width: -webkit-fill-available;
+  aspect-ratio: 2;
+}
+
 .wp-block-preformatted {
   position: relative;
   font-family: inherit;
@@ -3457,9 +3463,9 @@ mark {
 }
 .footer__contacts a img {
   display: block;
-  height: 25px;
+  height: 20px;
   width: auto;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 .footer__clinic {
   display: grid;
@@ -3481,16 +3487,15 @@ mark {
   justify-content: space-around;
   gap: 20px;
   padding: 20px;
-  border: 1px solid #fff;
+  background: #08bfcc;
   border-radius: 6px;
-  transition: border 0.1s, background-color 0.1s;
+  transition: background-color 0.1s;
   text-decoration: none;
   margin: 0 !important;
 }
 @media (hover: hover) {
   .footer__clinic-item:hover {
     background-color: #39b0d2;
-    border: 1px solid #39b0d2;
   }
 }
 .footer__clinic-adres, .footer__clinic-worktime, .footer__clinic-worktime-p1, .footer__clinic-worktime-p2, .footer__clinic-tel, .footer__clinic-email, .footer__clinic-media {
@@ -3689,6 +3694,9 @@ mark {
   .page-blog-note__slide-cover,
   .page-blog-note__slide-cover img {
     height: 30vh;
+  }
+  iframe {
+    aspect-ratio: 0.7;
   }
 }
 @media (max-width: 1750px) {
@@ -4163,7 +4171,6 @@ mark {
   }
   .reviews__items {
     flex-direction: column;
-    margin-top: 50px;
   }
   .reviews__item {
     margin: 0 auto 70px;
@@ -4246,6 +4253,7 @@ mark {
   }
 }
 @media (orientation: portrait) and (max-width: 500px) {
+  iframe,
   .wp-block-cover,
   .wp-block-image,
   .wp-block-themeisle-blocks-slider {

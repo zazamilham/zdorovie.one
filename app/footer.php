@@ -18,24 +18,28 @@
 		                        <?php echo $all_options['number_phone']; ?>
 		                    </a>
 		                    <a class="link footer__clinic-email" href="mailto:<?php echo $all_options['email_to_send']; ?>">
-		                        <i class="far fa-envelope"></i>
+		                        <i class="fas fa-envelope"></i>
 		                        <?php echo $all_options['email_to_send']; ?>
 		                    </a>
 		                    <a class="link footer__clinic-media" target="_blank"
 		                        href="<?php echo $all_options['wa_link']; ?>">
-		                        <i class="fab fa-whatsapp"></i>WhatsApp
+		                        <img src="<?php bloginfo('template_url'); ?>/assets/theme/img/footer__whatsapp.png"
+		                            alt="WhatsApp">WhatsApp
 		                    </a>
 		                    <a class="link footer__clinic-media" target="_blank"
 		                        href="<?php echo $all_options['tg_link']; ?>">
-		                        <i class="fab fa-telegram-plane"></i>Telegram
+		                        <img src="<?php bloginfo('template_url'); ?>/assets/theme/img/footer__telegram.png"
+		                            alt="Telegram">Telegram
 		                    </a>
 		                    <a class="link footer__clinic-media" target="_blank"
 		                        href="<?php echo $all_options['vk_link']; ?>">
-		                        <i class="fab fa-vk"></i></i>Вконтакте
+		                        <img src="<?php bloginfo('template_url'); ?>/assets/theme/img/footer__vk.png"
+		                            alt="Вконтакте">Вконтакте
 		                    </a>
 		                    <a class="link footer__clinic-media" target="_blank"
 		                        href="<?php echo $all_options['insta_link']; ?>">
-		                        <i class="fab fa-instagram"></i>Instagram
+		                        <img src="<?php bloginfo('template_url'); ?>/assets/theme/img/footer__instagram.png"
+		                            alt="Instagram">Instagram
 		                    </a>
 		                </div>
 		                <div class="footer__clinic">

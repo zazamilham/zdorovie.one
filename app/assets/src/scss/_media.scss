@@ -30,6 +30,11 @@
 	.page-blog-note__slide-cover img {
 		height: 30vh;
 	}
+
+	//------о клинике
+	iframe {
+		aspect-ratio: 0.7;
+	}
 }
 
 @media (max-width: 1750px) {
@@ -878,10 +883,12 @@
 
 	//------отзывы
 	.reviews {
+		// .reviews__items
 		&__items {
 			flex-direction: column;
-			margin-top: 50px;
 		}
+
+		// .reviews__item
 		&__item {
 			margin: 0 auto 70px;
 			&:last-child {
@@ -1002,6 +1009,7 @@
 			left: 20px;
 		}
 	}
+	iframe,
 	.wp-block-cover,
 	.wp-block-image,
 	.wp-block-themeisle-blocks-slider {

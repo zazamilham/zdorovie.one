@@ -301,7 +301,7 @@
         <div class="section__container reviews__container">
             <div class="section__description">
                 <div class="section__title reviews__title">ОТЗЫВЫ О НАС</div>
-                <div class="section__text">На независимых ресурсах</div>
+                <!-- <div class="section__text">На независимых ресурсах</div> -->
             </div>
             <div class="section__items reviews__items">
 
